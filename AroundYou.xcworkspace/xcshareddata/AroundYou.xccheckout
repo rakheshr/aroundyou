@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8E1F77BC-854D-40BF-9716-1A0633DC79FC</string>
+	<string>11FA9C60-4D58-4D9B-A25E-8B012D4DAEC1</string>
 	<key>IDESourceControlProjectName</key>
 	<string>AroundYou</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F9F98CA3-A6E1-4309-8CA4-32BC24C04191</key>
-		<string>https://github.com/rakheshr/ios-training.git</string>
+		<key>C00FC4B0-517A-42DC-BE7F-A0220B49153B</key>
+		<string>https://github.com/rakheshr/aroundyou.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AroundYou/AroundYou.xcworkspace</string>
+	<string>AroundYou.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F9F98CA3-A6E1-4309-8CA4-32BC24C04191</key>
-		<string>../..</string>
+		<key>C00FC4B0-517A-42DC-BE7F-A0220B49153B</key>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/rakheshr/ios-training.git</string>
+	<string>https://github.com/rakheshr/aroundyou.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F9F98CA3-A6E1-4309-8CA4-32BC24C04191</string>
+	<string>C00FC4B0-517A-42DC-BE7F-A0220B49153B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F9F98CA3-A6E1-4309-8CA4-32BC24C04191</string>
+			<string>C00FC4B0-517A-42DC-BE7F-A0220B49153B</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ios-training</string>
+			<string>aroundyou</string>
 		</dict>
 	</array>
 </dict>
