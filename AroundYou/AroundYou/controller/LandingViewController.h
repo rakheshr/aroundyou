@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+//Landing page
 @interface LandingViewController : UIViewController
 
 @end
