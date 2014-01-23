@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>11FA9C60-4D58-4D9B-A25E-8B012D4DAEC1</string>
+	<string>96CD7B21-4B9B-476C-844A-807D7008D6F9</string>
 	<key>IDESourceControlProjectName</key>
 	<string>AroundYou</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>C00FC4B0-517A-42DC-BE7F-A0220B49153B</key>
+		<key>2DD022A4-C3E2-4FC2-AEE8-574D818C0153</key>
 		<string>https://github.com/rakheshr/aroundyou.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>AroundYou.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>C00FC4B0-517A-42DC-BE7F-A0220B49153B</key>
+		<key>2DD022A4-C3E2-4FC2-AEE8-574D818C0153</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>C00FC4B0-517A-42DC-BE7F-A0220B49153B</string>
+	<string>2DD022A4-C3E2-4FC2-AEE8-574D818C0153</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C00FC4B0-517A-42DC-BE7F-A0220B49153B</string>
+			<string>2DD022A4-C3E2-4FC2-AEE8-574D818C0153</string>
 			<key>IDESourceControlWCCName</key>
 			<string>aroundyou</string>
 		</dict>
