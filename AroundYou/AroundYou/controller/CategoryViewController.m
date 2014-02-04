@@ -7,8 +7,12 @@
 //
 
 #import "CategoryViewController.h"
+#import "GooglePlacesClient.h"
+#import "Place.h"
 
 @interface CategoryViewController ()
+
+@property (nonatomic,strong) NSMutableArray* places;
 
 @end
 
@@ -23,10 +27,35 @@
     return self;
 }
 
+- (id)initWithTypes:(NSArray*)types
+{
+    self = [super init];
+    if (self) {
+        self.types = types;
+        // Custom initialization
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    self.title = self.category;
+    self.places = [[NSMutableArray alloc] init];
+    
+    GooglePlacesClient* client = [[GooglePlacesClient alloc] init];
+    [client searchPlaces:self.types latitute:-33.8670522f longitude:151.1957362f success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
+        NSLog(@"Success: %@",data);
+        NSArray* results = [data valueForKey:@"results"];
+        for(NSDictionary* result in results){
+            [self.places addObject: [[Place alloc] initWithDictionary:result]];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id data) {
+        NSLog(@"Failure: %@",error);
+    }];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -46,23 +75,29 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.places count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"CategoryViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    Place* place = [self.places objectAtIndex:indexPath.row];
     
     // Configure the cell...
-    
+    UILabel* title = [cell viewWithTag:1];
+    title.text = place.name;
+    if(place.rating){
+        UILabel* rating = [cell viewWithTag:2];
+        rating.text = [NSString stringWithFormat: @"%@", place.rating];
+    }
     return cell;
 }
 

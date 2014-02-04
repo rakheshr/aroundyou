@@ -10,4 +10,7 @@
 
 @interface CategoryViewController : UITableViewController
 
+@property (nonatomic, strong) NSString* category;
+@property (nonatomic, strong) NSArray* types;
+
 @end

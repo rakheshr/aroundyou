@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1EDCC1F5A9CE43CEA4EB6481 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F72AF06922F547CB815CD9CA /* libPods.a */; };
 		64B53E46189F333E0052FABB /* YelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B53E45189F333E0052FABB /* YelpClient.m */; };
+		64C7E5D318A068EA000B84DD /* GooglePlacesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D218A068EA000B84DD /* GooglePlacesClient.m */; };
+		64C7E5D618A078C0000B84DD /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D518A078C0000B84DD /* Config.m */; };
+		64C7E5D918A09F90000B84DD /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D818A09F90000B84DD /* Place.m */; };
 		97D466291890A28700CBCE81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D466281890A28700CBCE81 /* Foundation.framework */; };
 		97D4662B1890A28700CBCE81 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D4662A1890A28700CBCE81 /* CoreGraphics.framework */; };
 		97D4662D1890A28700CBCE81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D4662C1890A28700CBCE81 /* UIKit.framework */; };
@@ -42,6 +45,12 @@
 		415025F2FF6149409C611DE8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		64B53E44189F333E0052FABB /* YelpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClient.h; sourceTree = "<group>"; };
 		64B53E45189F333E0052FABB /* YelpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClient.m; sourceTree = "<group>"; };
+		64C7E5D118A068EA000B84DD /* GooglePlacesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooglePlacesClient.h; sourceTree = "<group>"; };
+		64C7E5D218A068EA000B84DD /* GooglePlacesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooglePlacesClient.m; sourceTree = "<group>"; };
+		64C7E5D418A078C0000B84DD /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = SOURCE_ROOT; };
+		64C7E5D518A078C0000B84DD /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = SOURCE_ROOT; };
+		64C7E5D718A09F90000B84DD /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = SOURCE_ROOT; };
+		64C7E5D818A09F90000B84DD /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = SOURCE_ROOT; };
 		97D466251890A28700CBCE81 /* AroundYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AroundYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D466281890A28700CBCE81 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		97D4662A1890A28700CBCE81 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,6 +109,8 @@
 			children = (
 				64B53E44189F333E0052FABB /* YelpClient.h */,
 				64B53E45189F333E0052FABB /* YelpClient.m */,
+				64C7E5D118A068EA000B84DD /* GooglePlacesClient.h */,
+				64C7E5D218A068EA000B84DD /* GooglePlacesClient.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -206,6 +217,10 @@
 		97D466681890A35300CBCE81 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				64C7E5D418A078C0000B84DD /* Config.h */,
+				64C7E5D518A078C0000B84DD /* Config.m */,
+				64C7E5D718A09F90000B84DD /* Place.h */,
+				64C7E5D818A09F90000B84DD /* Place.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -345,9 +360,12 @@
 				64B53E46189F333E0052FABB /* YelpClient.m in Sources */,
 				97D4666B1890A6FC00CBCE81 /* ContentListViewController.m in Sources */,
 				97D4666E1890A73800CBCE81 /* CategoryViewController.m in Sources */,
+				64C7E5D318A068EA000B84DD /* GooglePlacesClient.m in Sources */,
 				97D466391890A28700CBCE81 /* AppDelegate.m in Sources */,
+				64C7E5D918A09F90000B84DD /* Place.m in Sources */,
 				97D466711890A8ED00CBCE81 /* DetailsViewController.m in Sources */,
 				97D466651890A32A00CBCE81 /* LandingViewController.m in Sources */,
+				64C7E5D618A078C0000B84DD /* Config.m in Sources */,
 				97D466351890A28700CBCE81 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
