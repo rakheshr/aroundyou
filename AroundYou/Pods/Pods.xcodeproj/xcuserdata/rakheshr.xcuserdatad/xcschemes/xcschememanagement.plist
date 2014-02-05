@@ -8,19 +8,51 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-AFOAuth1Client.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-AFOAuth2Client.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>3988386ED64149179EA5F6E2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9750A88BDE0F4206AE844EE4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF816C5C31F64FD6B71405FD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5AEFDE27EC5462BA124B9EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>
