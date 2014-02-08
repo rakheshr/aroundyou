@@ -9,7 +9,6 @@
 #import "FlickrClient.h"
 #import "AFNetworking.h"
 
-#define FLICKR_BASE_URL = "http://api.flickr.com/services/rest/?method=flickr.photos.search"
 #define FLICKR_API_KEY "edcc64136c3019f39814935b8299360e"
 
 
@@ -31,8 +30,8 @@
 - (void) searchPopularPhotosWithLatitude:(float)latitute longitude:(float)longitude success:(void (^)(NSURLRequest* request, NSHTTPURLResponse* response, id data))success failure:(void (^)(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error, id data))failure{
     
     NSMutableString* urlPath = [NSMutableString stringWithString: @""];
+    [urlPath appendString:@"&radius=32&has_geo=1&extras=url_s&accuracy=6"];
     [urlPath appendString:[NSString stringWithFormat: @"&lat=%f",latitute]];
-    [urlPath appendString:@"&radius=20"];
     [urlPath appendString:[NSString stringWithFormat: @"&lon=%f",longitude]];
     [urlPath appendString:[NSString stringWithFormat: @"&format=json&nojsoncallback=1&api_key=%@", @(FLICKR_API_KEY)]];
     NSLog(@"RequestURL: %@",urlPath);

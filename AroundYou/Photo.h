@@ -10,4 +10,17 @@
 
 @interface Photo : NSObject
 
+@property (nonatomic, strong) NSString* farm;
+@property (nonatomic, strong) NSString* height_s;
+@property (nonatomic, strong) NSString* photoid;
+@property (nonatomic, strong) NSString* owner;
+@property (nonatomic, strong) NSString* secret;
+@property (nonatomic, strong) NSString* server;
+@property (nonatomic, strong) NSString* title;
+@property (nonatomic, strong) NSString* url_s;
+@property (nonatomic, strong) NSString* url_m;
+@property (nonatomic, strong) NSString* width_s;
+
+-(id) initWithDictionary:(NSDictionary*) photosDictionary;
+
 @end

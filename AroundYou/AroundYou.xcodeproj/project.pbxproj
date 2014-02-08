@@ -13,7 +13,7 @@
 		64C7E5D618A078C0000B84DD /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D518A078C0000B84DD /* Config.m */; };
 		64C7E5D918A09F90000B84DD /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D818A09F90000B84DD /* Place.m */; };
 		978D1A2318A142D200F6DA1F /* FlickrClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 978D1A2218A142D200F6DA1F /* FlickrClient.m */; };
-		97BC911918A20EF900192447 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC911818A20EF900192447 /* PhotosViewController.m */; };
+		978FC31018A6D72C00F0CE07 /* FlickrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 978FC30F18A6D72C00F0CE07 /* FlickrViewController.m */; };
 		97BC911C18A21CEE00192447 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC911B18A21CEE00192447 /* Photo.m */; };
 		97D466291890A28700CBCE81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D466281890A28700CBCE81 /* Foundation.framework */; };
 		97D4662B1890A28700CBCE81 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D4662A1890A28700CBCE81 /* CoreGraphics.framework */; };
@@ -56,8 +56,8 @@
 		64C7E5D818A09F90000B84DD /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = SOURCE_ROOT; };
 		978D1A2118A142D200F6DA1F /* FlickrClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlickrClient.h; path = API/FlickrClient.h; sourceTree = "<group>"; };
 		978D1A2218A142D200F6DA1F /* FlickrClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlickrClient.m; path = API/FlickrClient.m; sourceTree = "<group>"; };
-		97BC911718A20EF900192447 /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotosViewController.h; path = controller/PhotosViewController.h; sourceTree = "<group>"; };
-		97BC911818A20EF900192447 /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotosViewController.m; path = controller/PhotosViewController.m; sourceTree = "<group>"; };
+		978FC30E18A6D72C00F0CE07 /* FlickrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlickrViewController.h; path = controller/FlickrViewController.h; sourceTree = "<group>"; };
+		978FC30F18A6D72C00F0CE07 /* FlickrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlickrViewController.m; path = controller/FlickrViewController.m; sourceTree = "<group>"; };
 		97BC911A18A21CEE00192447 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = SOURCE_ROOT; };
 		97BC911B18A21CEE00192447 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = SOURCE_ROOT; };
 		97D466251890A28700CBCE81 /* AroundYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AroundYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,10 +212,10 @@
 				97D4666A1890A6FC00CBCE81 /* ContentListViewController.m */,
 				97D4666C1890A73800CBCE81 /* CategoryViewController.h */,
 				97D4666D1890A73800CBCE81 /* CategoryViewController.m */,
+				978FC30E18A6D72C00F0CE07 /* FlickrViewController.h */,
+				978FC30F18A6D72C00F0CE07 /* FlickrViewController.m */,
 				97D4666F1890A8ED00CBCE81 /* DetailsViewController.h */,
 				97D466701890A8ED00CBCE81 /* DetailsViewController.m */,
-				97BC911718A20EF900192447 /* PhotosViewController.h */,
-				97BC911818A20EF900192447 /* PhotosViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -373,12 +373,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				64B53E46189F333E0052FABB /* YelpClient.m in Sources */,
-				97BC911918A20EF900192447 /* PhotosViewController.m in Sources */,
 				97D4666B1890A6FC00CBCE81 /* ContentListViewController.m in Sources */,
 				97D4666E1890A73800CBCE81 /* CategoryViewController.m in Sources */,
 				97BC911C18A21CEE00192447 /* Photo.m in Sources */,
 				64C7E5D318A068EA000B84DD /* GooglePlacesClient.m in Sources */,
 				97D466391890A28700CBCE81 /* AppDelegate.m in Sources */,
+				978FC31018A6D72C00F0CE07 /* FlickrViewController.m in Sources */,
 				978D1A2318A142D200F6DA1F /* FlickrClient.m in Sources */,
 				64C7E5D918A09F90000B84DD /* Place.m in Sources */,
 				97D466711890A8ED00CBCE81 /* DetailsViewController.m in Sources */,

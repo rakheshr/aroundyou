@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdP-Qn-51C">
-                                <rect key="frame" x="208" y="122" width="37" height="30"/>
+                                <rect key="frame" x="140" y="106" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Shop">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YM4-3e-578">
-                                <rect key="frame" x="62" y="122" width="30" height="30"/>
+                                <rect key="frame" x="62" y="120" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Eat">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,7 +65,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNp-Xq-Jt5">
-                                <rect key="frame" x="136" y="188" width="39" height="30"/>
+                                <rect key="frame" x="137" y="188" width="39" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="News">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,14 +97,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cp-9j-qDL">
-                                <rect key="frame" x="137" y="278" width="46" height="30"/>
+                                <rect key="frame" x="137" y="287" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Places">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="utilities:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oKt-VR-KH5"/>
-                                    <segue destination="8yT-ZH-np3" kind="push" identifier="FlickrPhotoSegue" id="yY9-ee-5Nz"/>
+                                    <segue destination="o0x-dm-nVv" kind="push" id="nZK-b0-Aud"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="285" y="-210"/>
+            <point key="canvasLocation" x="-103" y="-304"/>
         </scene>
         <!--Content List View Controller-->
         <scene sceneID="lFN-Rn-oHU">
@@ -142,7 +142,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JbW-qv-WNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696" y="-520"/>
+            <point key="canvasLocation" x="1186" y="-510"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="ysY-si-Ysl">
@@ -211,40 +211,47 @@
             </objects>
             <point key="canvasLocation" x="704" y="259"/>
         </scene>
-        <!--Photos View Controller-->
-        <scene sceneID="d6k-1H-IQ7">
+        <!--Flickr View Controller-->
+        <scene sceneID="XxV-nb-v1L">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="8yT-ZH-np3" customClass="PhotosViewController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="hnc-MV-iGi">
+                <tableViewController id="o0x-dm-nVv" customClass="FlickrViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" id="qnE-xW-Bqn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IoC-nL-Dis">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5In-Py-tDi">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FlickrCell" rowHeight="120" id="h04-4Z-K2h">
+                                <rect key="frame" x="0.0" y="86" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h04-4Z-K2h" id="oUp-Mg-6E8">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZO4-S9-3Bi">
+                                            <rect key="frame" x="9" y="4" width="136" height="112"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" text="The wonderful park in Sunnyvale ca" translatesAutoresizingMaskIntoConstraints="NO" id="rYf-zM-hy3">
+                                            <rect key="frame" x="153" y="36" width="160" height="77"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="8yT-ZH-np3" id="Zx5-6a-Bxc"/>
-                            <outlet property="delegate" destination="8yT-ZH-np3" id="j7H-DJ-cI3"/>
+                            <outlet property="dataSource" destination="o0x-dm-nVv" id="CpX-xT-au3"/>
+                            <outlet property="delegate" destination="o0x-dm-nVv" id="HFu-jC-77S"/>
                         </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="jju-oM-hi3"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cgV-l2-ie3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="CBY-lk-qNZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3AW-bD-A5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="253" y="498"/>
+            <point key="canvasLocation" x="691" y="-510"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="x8h-ZF-VlK">
@@ -272,7 +279,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NqR-Rl-Stx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1256" y="-113"/>
+            <point key="canvasLocation" x="1196" y="167"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5uh-ih-3OZ">
@@ -290,7 +297,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uF-Au-KME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271" y="-210"/>
+            <point key="canvasLocation" x="-595" y="-326"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
