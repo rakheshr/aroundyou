@@ -95,16 +95,19 @@ CLLocationManager *locationManager;
     UITableViewCell *flickrCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Photo* photo = [self.photoList objectAtIndex:indexPath.row];
-    UITextView * title = (UITextView*)[flickrCell viewWithTag:1];
-    title.text = photo.title;
+    UITextView * description = (UITextView*)[flickrCell viewWithTag:1];
+    description.text = [photo.description valueForKey:@"_content"];
     NSURL *imageURL = [NSURL URLWithString:photo.url_s];
     
+    UILabel *titleLabel = (UILabel *) [flickrCell viewWithTag:3];
+    titleLabel.text = photo.title;
     UIImageView *localtionImage = (UIImageView*)[flickrCell viewWithTag:2];
     [localtionImage setImageWithURL:imageURL];
     
     localtionImage.layer.cornerRadius = 4.0;
+
     localtionImage.clipsToBounds = YES;
-    NSLog(photo.url_s);
+//    NSLog(photo.url_s);
     
     
     

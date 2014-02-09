@@ -12,26 +12,13 @@
 #define FLICKR_API_KEY "edcc64136c3019f39814935b8299360e"
 
 
-/*
- 
- http://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
- or
- http://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[mstzb].jpg
- or
- http://farm{farm-id}.staticflickr.com/{server-id}/{id}_{o-secret}_o.(jpg|gif|png)
-
- http://farm1.staticflickr.com/2/1418878_1e92283336_m.jpg
- 
- */
-
-
 @implementation FlickrClient
 
 - (void) searchPopularPhotosWithLatitude:(float)latitute longitude:(float)longitude success:(void (^)(NSURLRequest* request, NSHTTPURLResponse* response, id data))success failure:(void (^)(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error, id data))failure{
     
     NSMutableString* urlPath = [NSMutableString stringWithString: @""];
-    [urlPath appendString:@"&radius=32&has_geo=1&extras=url_s&accuracy=6"];
-    [urlPath appendString:[NSString stringWithFormat: @"&lat=%f",latitute]];
+    [urlPath appendString:@"&radius=32&has_geo=1&extras=url_s,description&accuracy=6&sort=interestingness-desc&privacy_filter=1"];
+    [urlPath appendString:[NSString stringWithFormat: @"&per_page=40&page=1&lat=%f",latitute]];
     [urlPath appendString:[NSString stringWithFormat: @"&lon=%f",longitude]];
     [urlPath appendString:[NSString stringWithFormat: @"&format=json&nojsoncallback=1&api_key=%@", @(FLICKR_API_KEY)]];
     NSLog(@"RequestURL: %@",urlPath);

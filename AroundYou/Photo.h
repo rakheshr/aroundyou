@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSString* url_s;
 @property (nonatomic, strong) NSString* url_m;
 @property (nonatomic, strong) NSString* width_s;
+@property (nonatomic, strong) NSDictionary* description;
 
 -(id) initWithDictionary:(NSDictionary*) photosDictionary;
 
