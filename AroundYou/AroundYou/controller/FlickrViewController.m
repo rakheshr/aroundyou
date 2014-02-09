@@ -11,6 +11,7 @@
 #import "FlickrClient.h"
 #import "Photo.h"
 #import "UIImageView+AFNetworking.h"
+#import "PhotoDetailsViewController.h"
 
 @interface FlickrViewController ()
 
@@ -67,6 +68,7 @@ CLLocationManager *locationManager;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -91,7 +93,15 @@ CLLocationManager *locationManager;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"FlickrCell";
+  
+    
+    NSString *CellIdentifier = @"FlickrNormalCell";
+    
+    if(indexPath.row ==0){
+        CellIdentifier = @"FlickrCell";
+    }
+
+    
     UITableViewCell *flickrCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Photo* photo = [self.photoList objectAtIndex:indexPath.row];
@@ -115,6 +125,14 @@ CLLocationManager *locationManager;
     // Configure the cell...
     
     return flickrCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == 0){
+        return 165.0;
+    }
+    return 95.0;
 }
 
 /*
@@ -156,17 +174,22 @@ CLLocationManager *locationManager;
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSIndexPath* selectedIndex = [self.tableView indexPathForCell:sender];
+    Photo* photo = [self.photoList objectAtIndex:selectedIndex.row];
+    PhotoDetailsViewController *pdvc = [segue destinationViewController];
+    pdvc.flickPhoto = photo;
+
+    NSLog(@"PrepareForSegue Called");
+
 }
 
- */
+
 
 - (void)startStandardUpdates
 {
