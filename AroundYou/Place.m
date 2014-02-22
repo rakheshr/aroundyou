@@ -28,8 +28,9 @@
 -(id) initWithDictionary:(NSDictionary*) dictionary{
     self = [super init];
     if(self){
-        self.lat = [dictionary valueForKey:@"geometry.location.lat"];
-        self.lng = [dictionary valueForKey:@"geometry.location.lng"];
+        self.lat = [[[dictionary valueForKey:@"geometry"] valueForKey:@"location"] valueForKey:@"lat"];
+        self.lng = [[[dictionary valueForKey:@"geometry"] valueForKey:@"location"] valueForKey:@"lng"];
+        //self.lng = [dictionary valueForKey:@"geometry.location.lng"];
         self.icon = [dictionary valueForKey:@"icon"];
         self.rid = [dictionary valueForKey:@"id"];
         self.name = [dictionary valueForKey:@"name"];

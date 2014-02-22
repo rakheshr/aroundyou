@@ -52,6 +52,7 @@
             <connections>
                 <outlet property="categoryHeaderImage" destination="aON-F5-YUh" id="i8c-km-ppr"/>
                 <outlet property="categoryHeaderLabel" destination="fhL-i5-sCh" id="d1N-gB-KMM"/>
+                <outlet property="headerView" destination="Hyg-AL-Yha" id="y1b-sA-uP8"/>
             </connections>
         </tableViewCell>
     </objects>

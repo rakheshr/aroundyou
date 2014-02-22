@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Yahoo. All rights reserved.
 //
 
-#define HEADER_IMAGE_HEIGHT 700
+#define HEADER_IMAGE_HEIGHT 800
 
 #import "Category2ViewController.h"
 #import "GooglePlacesClient.h"
@@ -15,6 +15,7 @@
 #import "CategoryViewItemCell.h"
 #import "CategoryViewFooterCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "CoreLocation/CoreLocation.h"
 
 @interface Category2ViewController ()
 
@@ -26,7 +27,11 @@
 
 @end
 
-@implementation Category2ViewController
+@implementation Category2ViewController{
+    UIView *selectionColor;
+    float latitute;
+    float longitude;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -58,6 +63,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    latitute=-33.8670522f;
+    longitude=151.1957362f;
+
 	// Do any additional setup after loading the view.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -67,6 +76,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"CategoryViewFooterCell" bundle:nil] forCellReuseIdentifier:@"CategoryViewFooterCell"];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    selectionColor =[[[NSBundle mainBundle] loadNibNamed:@"HighLightView" owner:self options:nil] objectAtIndex:0];
     
     self.title = self.category;
     self.places = [[NSMutableArray alloc] init];
@@ -76,7 +86,7 @@
     for(int i = 0 ; i < self.types.count ; i++){
         NSArray* type = [[NSArray alloc] initWithObjects: [self.types objectAtIndex:i], nil];
         
-        [client searchPlaces:type latitute:-33.8670522f longitude:151.1957362f success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
+        [client searchPlaces:type latitute:latitute longitude:longitude success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
             NSLog(@"Success: %@",data);
             NSArray* results = [data valueForKey:@"results"];
             for(NSDictionary* result in results){
@@ -181,9 +191,27 @@
         // Configure the cell...
         ((CategoryViewItemCell*)cell).itemLabel.text = place.name;
         if(place.rating){
-            ((CategoryViewItemCell*)cell).itemRating.text = [NSString stringWithFormat: @"%@", place.rating];
+            unichar bullet = 0x2022;
+            ((CategoryViewItemCell*)cell).itemRating.text = [NSString stringWithFormat:@"Rating: %@  %@  ",[NSString stringWithFormat: @"%@", place.rating],[NSString stringWithCharacters:&bullet length:1]];
+        }else{
+            for(NSLayoutConstraint* con in ((CategoryViewItemCell*)cell).itemRating.constraints){
+                if([con firstAttribute] == NSLayoutAttributeWidth){
+                    con.constant = 0.0;
+                }
+            }
         }
-                
+        
+        CLLocation* second = [[CLLocation alloc] initWithLatitude:latitute longitude:longitude];
+        CLLocation* first = [[CLLocation alloc] initWithLatitude:[place.lat floatValue] longitude:[place.lng floatValue]];
+        
+        CLLocationDistance distance = [first distanceFromLocation:second];
+        float miles = distance*0.00062137;
+        float ft = miles*5280;
+        if(miles < 0.1){
+            ((CategoryViewItemCell*)cell).distance.text = [NSString stringWithFormat:@"%.1f mi",miles];
+        }else{
+            ((CategoryViewItemCell*)cell).distance.text = [NSString stringWithFormat:@"%d ft",(int)ft];
+        }
         // Do any additional setup after loading the view, typically from a nib
         
         
@@ -204,6 +232,8 @@
          rating.text = [NSString stringWithFormat: @"%@", place.rating];
          }*/
     }
+
+    cell.selectedBackgroundView = selectionColor;
     return cell;
 }
 
