@@ -21,6 +21,8 @@
 @property (nonatomic, strong, readonly) NSArray* vicinity;
 @property (nonatomic, readonly) BOOL open;
 
+@property (nonatomic, strong) NSMutableArray* photos;
+
 -(id) initWithDictionary:(NSDictionary*) dictionary;
 
 @end

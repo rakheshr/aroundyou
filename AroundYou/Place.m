@@ -38,6 +38,11 @@
         self.reference = [dictionary valueForKey:@"reference"];
         self.types = [dictionary valueForKey:@"types"];
         self.vicinity = [dictionary valueForKey:@"vicinity"];
+        NSArray* photosRef = [dictionary valueForKey:@"photos"];
+        self.photos = [[NSMutableArray alloc] init];
+        for(NSDictionary* item in photosRef){
+            [self.photos addObject:[item valueForKey:@"photo_reference"]];
+        }
     }
     return self;
 }

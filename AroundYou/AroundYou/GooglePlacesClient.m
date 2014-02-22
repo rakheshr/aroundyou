@@ -46,4 +46,20 @@
     
 }
 
++ (NSString*) getImageURL:(NSString*)reference maxwidth:(int) maxwidth maxheight:(int) maxheight{
+    
+    NSMutableString* urlPath = [NSMutableString stringWithString: @""];
+    [urlPath appendString:[NSString stringWithFormat: @"photoreference=%@",reference]];
+    [urlPath appendString:[NSString stringWithFormat: @"&sensor=false&key=%@",@(GOOGLE_API_KEY)]];
+    if(maxwidth > 0){
+        [urlPath appendString:[NSString stringWithFormat: @"&maxwidth=%d",maxwidth]];
+    }else if(maxheight > 0){
+        [urlPath appendString:[NSString stringWithFormat: @"&maxheight=%d",maxheight]];
+    }
+    NSLog(@"RequestURL: %@",urlPath);
+    return [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/photo?%@", [urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+}
+
+
 @end

@@ -6,12 +6,15 @@
 //  Copyright (c) 2014 Yahoo. All rights reserved.
 //
 
+#define HEADER_IMAGE_HEIGHT 700
+
 #import "Category2ViewController.h"
 #import "GooglePlacesClient.h"
 #import "Place.h"
 #import "CategoryViewHeaderCell.h"
 #import "CategoryViewItemCell.h"
 #import "CategoryViewFooterCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface Category2ViewController ()
 
@@ -83,6 +86,7 @@
                 [[self.categoryPlaces objectForKey:[type objectAtIndex:0]] addObject: place];
                 //}
             }
+            
             self.noOfRequests--;
             if(self.noOfRequests == 0){
                 //load top values.
@@ -150,6 +154,22 @@
         static NSString *CellIdentifier = @"CategoryViewHeaderCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         ((CategoryViewHeaderCell*)cell).categoryHeaderLabel.text = [self.types objectAtIndex:indexPath.section];
+        UIImageView* headerImage = ((CategoryViewHeaderCell*)cell).categoryHeaderImage;
+        NSMutableArray* allPhotos = [[NSMutableArray alloc] init];
+        NSArray* allPlacesInCategory = [self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section]];
+        for(Place* place in allPlacesInCategory){
+            if([place.photos count] > 0){
+                for (NSString* pRef in place.photos) {
+                    [allPhotos addObject: [GooglePlacesClient getImageURL:pRef maxwidth:-1 maxheight:HEADER_IMAGE_HEIGHT] ];
+                }
+            }
+        }
+        if([allPhotos count] > 0){
+            [headerImage setImageWithURL: [NSURL URLWithString:[allPhotos objectAtIndex:0]]];
+        }/*else if([allPhotos count] > 1){
+            [headerImage setImageWithURL
+        }*/
+        
     }else if(indexPath.row == ([[self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section] ] count]+1)){
         static NSString *CellIdentifier = @"CategoryViewFooterCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];

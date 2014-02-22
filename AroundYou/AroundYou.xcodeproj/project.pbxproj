@@ -134,7 +134,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6476517C18B921AB00F1E825 /* CategoryView */ = {
+		6476517C18B921AB00F1E825 /* CategoryViews */ = {
 			isa = PBXGroup;
 			children = (
 				64D242B018B87D280049729D /* CategoryViewHeaderCell.xib */,
@@ -147,7 +147,14 @@
 				64D242C218B8C5F70049729D /* CategoryViewFooterCell.m */,
 				64D242C418B8C61E0049729D /* CategoryViewFooterCell.xib */,
 			);
-			name = CategoryView;
+			name = CategoryViews;
+			sourceTree = "<group>";
+		};
+		6476517D18B924E700F1E825 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CommonViews;
 			sourceTree = "<group>";
 		};
 		64B53E40189DD2E80052FABB /* API */ = {
@@ -264,7 +271,8 @@
 		97D466671890A35300CBCE81 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				6476517C18B921AB00F1E825 /* CategoryView */,
+				6476517D18B924E700F1E825 /* CommonViews */,
+				6476517C18B921AB00F1E825 /* CategoryViews */,
 			);
 			path = view;
 			sourceTree = "<group>";
