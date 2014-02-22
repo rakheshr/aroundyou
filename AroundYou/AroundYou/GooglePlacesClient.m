@@ -30,4 +30,20 @@
 
 }
 
+
+- (void) placeDetails:(NSString*)reference success:(void (^)(NSURLRequest* request, NSHTTPURLResponse* response, id data))success failure:(void (^)(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error, id data))failure{
+    
+    NSMutableString* urlPath = [NSMutableString stringWithString: @""];
+    [urlPath appendString:[NSString stringWithFormat: @"reference=%@",reference]];
+    [urlPath appendString:[NSString stringWithFormat: @"&sensor=false&key=%@",@(GOOGLE_API_KEY)]];
+    NSLog(@"RequestURL: %@",urlPath);
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?%@", [urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
+    
+    [operation start];
+    
+}
+
 @end

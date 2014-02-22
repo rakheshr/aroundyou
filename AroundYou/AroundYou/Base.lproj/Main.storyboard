@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vux-oT-xm4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vux-oT-xm4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -39,7 +39,7 @@
                                 </state>
                                 <connections>
                                     <action selector="eat:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nCf-7P-c4l"/>
-                                    <segue destination="K7a-q2-RWK" kind="push" id="9EN-2E-POa"/>
+                                    <segue destination="k5j-rS-eKT" kind="push" id="Jjq-nF-sh6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMO-76-1oJ">
@@ -210,6 +210,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4H-hZ-CTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="588" y="223"/>
+        </scene>
+        <!--Category2 View Controller-->
+        <scene sceneID="rPY-zG-NS8">
+            <objects>
+                <viewController id="k5j-rS-eKT" customClass="Category2ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DK9-88-55p"/>
+                        <viewControllerLayoutGuide type="bottom" id="weI-sf-B5b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9gT-q1-jii">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="l03-fY-06u">
+                                <rect key="frame" x="9" y="0.0" width="302" height="558"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94053583559999998" green="0.94053583559999998" blue="0.94053583559999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="l03-fY-06u" firstAttribute="top" secondItem="9gT-q1-jii" secondAttribute="top" id="IgO-rK-3Pk"/>
+                            <constraint firstAttribute="trailing" secondItem="l03-fY-06u" secondAttribute="trailing" constant="9" id="g4C-9F-niS"/>
+                            <constraint firstItem="l03-fY-06u" firstAttribute="leading" secondItem="9gT-q1-jii" secondAttribute="leading" constant="9" id="sVI-K9-4Sy"/>
+                            <constraint firstItem="weI-sf-B5b" firstAttribute="top" secondItem="l03-fY-06u" secondAttribute="bottom" constant="10" id="uss-oq-nG9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="yxM-5I-Bh0"/>
+                    <connections>
+                        <outlet property="tableView" destination="l03-fY-06u" id="7RP-iL-mza"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nXr-hi-Oj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915" y="222"/>
         </scene>
         <!--Flickr View Controller-->
         <scene sceneID="XxV-nb-v1L">

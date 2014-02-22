@@ -8,6 +8,7 @@
 
 #import "LandingViewController.h"
 #import "CategoryViewController.h"
+#import "Category2ViewController.h"
 
 @interface LandingViewController ()
 
@@ -45,7 +46,7 @@
 }
 */
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    CategoryViewController* categoryViewController = [segue destinationViewController];
+    Category2ViewController* categoryViewController = [segue destinationViewController];
     UIButton* button = (UIButton*)sender;
     if([button.titleLabel.text isEqualToString: @"Shop"]){
         NSArray* types = [NSArray arrayWithObjects:@"shopping_mall",@"shoe_store",@"real_estate_agency",@"pet_store",@"jewelry_store",@"home_goods_store",@"hardware_store",@"grocery_or_supermarket",@"furniture_store",@"electronics_store",@"department_store",@"convenience_store",@"clothing_store",@"car_rental",@"car_dealer",@"book_store",@"bicycle_store", nil];

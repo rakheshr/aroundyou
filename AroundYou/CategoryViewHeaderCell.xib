@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="110" id="DkX-uk-jxD" customClass="CategoryViewHeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DkX-uk-jxD" id="B9Y-2n-9e0">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aON-F5-YUh">
+                        <rect key="frame" x="0.0" y="40" width="323" height="70"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="ZLM-3q-vy4"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hyg-AL-Yha">
+                        <rect key="frame" x="0.0" y="0.0" width="323" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqT-pr-nNa">
+                                <rect key="frame" x="0.0" y="0.0" width="323" height="1"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.86062956199999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="trb-Li-pse"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DkH-uW-5KG">
+                                <rect key="frame" x="322" y="0.0" width="1" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.86062956199999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="fkN-WA-Yh7"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xss-AA-enH">
+                                <rect key="frame" x="0.0" y="0.0" width="1" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.86062956199999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="b3v-tU-pba"/>
+                                    <constraint firstAttribute="width" constant="1" id="ogs-IS-ZcQ"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhL-i5-sCh">
+                                <rect key="frame" x="20" y="10" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xss-AA-enH" firstAttribute="leading" secondItem="Hyg-AL-Yha" secondAttribute="leading" id="4uo-Zi-ce1"/>
+                            <constraint firstItem="fhL-i5-sCh" firstAttribute="leading" secondItem="Hyg-AL-Yha" secondAttribute="leading" constant="20" id="7FL-K5-Rns"/>
+                            <constraint firstItem="tqT-pr-nNa" firstAttribute="top" secondItem="Hyg-AL-Yha" secondAttribute="top" id="BTy-TU-aNX"/>
+                            <constraint firstItem="xss-AA-enH" firstAttribute="top" secondItem="Hyg-AL-Yha" secondAttribute="top" id="EdQ-RI-YZf"/>
+                            <constraint firstItem="fhL-i5-sCh" firstAttribute="top" secondItem="Hyg-AL-Yha" secondAttribute="top" constant="10" id="Egn-bi-lgU"/>
+                            <constraint firstAttribute="trailing" secondItem="DkH-uW-5KG" secondAttribute="trailing" id="L4M-i0-3BW"/>
+                            <constraint firstAttribute="height" constant="40" id="MLC-yd-YN9"/>
+                            <constraint firstAttribute="trailing" secondItem="tqT-pr-nNa" secondAttribute="trailing" id="OQp-bi-3Xv"/>
+                            <constraint firstItem="tqT-pr-nNa" firstAttribute="leading" secondItem="Hyg-AL-Yha" secondAttribute="leading" id="ki2-t6-wzo"/>
+                            <constraint firstItem="DkH-uW-5KG" firstAttribute="top" secondItem="Hyg-AL-Yha" secondAttribute="top" id="mM8-Dx-RIT"/>
+                            <constraint firstAttribute="bottom" secondItem="xss-AA-enH" secondAttribute="bottom" id="ulL-bE-1nP"/>
+                            <constraint firstAttribute="bottom" secondItem="DkH-uW-5KG" secondAttribute="bottom" id="xT8-FH-iI8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.94053583559782605" green="0.94053583559782605" blue="0.94053583559782605" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="aON-F5-YUh" firstAttribute="top" secondItem="Hyg-AL-Yha" secondAttribute="bottom" id="3JO-qR-xgh"/>
+                    <constraint firstAttribute="trailing" secondItem="Hyg-AL-Yha" secondAttribute="trailing" id="BmT-zt-a5p"/>
+                    <constraint firstItem="aON-F5-YUh" firstAttribute="leading" secondItem="B9Y-2n-9e0" secondAttribute="leading" id="Mwa-EG-RgS"/>
+                    <constraint firstItem="Hyg-AL-Yha" firstAttribute="leading" secondItem="B9Y-2n-9e0" secondAttribute="leading" id="OEY-pb-fpj"/>
+                    <constraint firstAttribute="trailing" secondItem="aON-F5-YUh" secondAttribute="trailing" id="dlk-3R-hds"/>
+                    <constraint firstItem="Hyg-AL-Yha" firstAttribute="top" secondItem="B9Y-2n-9e0" secondAttribute="top" id="nYB-Xr-JOs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="categoryHeaderImage" destination="aON-F5-YUh" id="i8c-km-ppr"/>
+                <outlet property="categoryHeaderLabel" destination="fhL-i5-sCh" id="d1N-gB-KMM"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

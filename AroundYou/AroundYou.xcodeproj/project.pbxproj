@@ -12,6 +12,13 @@
 		64C7E5D318A068EA000B84DD /* GooglePlacesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D218A068EA000B84DD /* GooglePlacesClient.m */; };
 		64C7E5D618A078C0000B84DD /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D518A078C0000B84DD /* Config.m */; };
 		64C7E5D918A09F90000B84DD /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D818A09F90000B84DD /* Place.m */; };
+		64D242B118B87D280049729D /* CategoryViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D242B018B87D280049729D /* CategoryViewHeaderCell.xib */; };
+		64D242B418B885830049729D /* CategoryViewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D242B318B885830049729D /* CategoryViewHeaderCell.m */; };
+		64D242B718B897DB0049729D /* CategoryViewItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D242B618B897DB0049729D /* CategoryViewItemCell.m */; };
+		64D242BD18B89F020049729D /* CategoryViewItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D242BC18B89F020049729D /* CategoryViewItemCell.xib */; };
+		64D242C018B8BCC80049729D /* Category2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D242BF18B8BCC80049729D /* Category2ViewController.m */; };
+		64D242C318B8C5F70049729D /* CategoryViewFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D242C218B8C5F70049729D /* CategoryViewFooterCell.m */; };
+		64D242C518B8C61E0049729D /* CategoryViewFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D242C418B8C61E0049729D /* CategoryViewFooterCell.xib */; };
 		9738DEE218A8353700C200FA /* PhotoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9738DEE118A8353700C200FA /* PhotoDetailsViewController.m */; };
 		978D1A2318A142D200F6DA1F /* FlickrClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 978D1A2218A142D200F6DA1F /* FlickrClient.m */; };
 		978FC31018A6D72C00F0CE07 /* FlickrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 978FC30F18A6D72C00F0CE07 /* FlickrViewController.m */; };
@@ -55,6 +62,17 @@
 		64C7E5D518A078C0000B84DD /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = SOURCE_ROOT; };
 		64C7E5D718A09F90000B84DD /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = SOURCE_ROOT; };
 		64C7E5D818A09F90000B84DD /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = SOURCE_ROOT; };
+		64D242B018B87D280049729D /* CategoryViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryViewHeaderCell.xib; sourceTree = SOURCE_ROOT; };
+		64D242B218B885830049729D /* CategoryViewHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewHeaderCell.h; sourceTree = SOURCE_ROOT; };
+		64D242B318B885830049729D /* CategoryViewHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewHeaderCell.m; sourceTree = SOURCE_ROOT; };
+		64D242B518B897DB0049729D /* CategoryViewItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewItemCell.h; sourceTree = SOURCE_ROOT; };
+		64D242B618B897DB0049729D /* CategoryViewItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewItemCell.m; sourceTree = SOURCE_ROOT; };
+		64D242BC18B89F020049729D /* CategoryViewItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryViewItemCell.xib; sourceTree = SOURCE_ROOT; };
+		64D242BE18B8BCC80049729D /* Category2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category2ViewController.h; sourceTree = "<group>"; };
+		64D242BF18B8BCC80049729D /* Category2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category2ViewController.m; sourceTree = "<group>"; };
+		64D242C118B8C5F70049729D /* CategoryViewFooterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewFooterCell.h; sourceTree = SOURCE_ROOT; };
+		64D242C218B8C5F70049729D /* CategoryViewFooterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewFooterCell.m; sourceTree = SOURCE_ROOT; };
+		64D242C418B8C61E0049729D /* CategoryViewFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryViewFooterCell.xib; sourceTree = SOURCE_ROOT; };
 		9738DEE018A8353700C200FA /* PhotoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoDetailsViewController.h; path = controller/PhotoDetailsViewController.h; sourceTree = "<group>"; };
 		9738DEE118A8353700C200FA /* PhotoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoDetailsViewController.m; path = controller/PhotoDetailsViewController.m; sourceTree = "<group>"; };
 		978D1A2118A142D200F6DA1F /* FlickrClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlickrClient.h; path = API/FlickrClient.h; sourceTree = "<group>"; };
@@ -116,6 +134,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6476517C18B921AB00F1E825 /* CategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				64D242B018B87D280049729D /* CategoryViewHeaderCell.xib */,
+				64D242B218B885830049729D /* CategoryViewHeaderCell.h */,
+				64D242B318B885830049729D /* CategoryViewHeaderCell.m */,
+				64D242B518B897DB0049729D /* CategoryViewItemCell.h */,
+				64D242B618B897DB0049729D /* CategoryViewItemCell.m */,
+				64D242BC18B89F020049729D /* CategoryViewItemCell.xib */,
+				64D242C118B8C5F70049729D /* CategoryViewFooterCell.h */,
+				64D242C218B8C5F70049729D /* CategoryViewFooterCell.m */,
+				64D242C418B8C61E0049729D /* CategoryViewFooterCell.xib */,
+			);
+			name = CategoryView;
+			sourceTree = "<group>";
+		};
 		64B53E40189DD2E80052FABB /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +255,8 @@
 				97D466701890A8ED00CBCE81 /* DetailsViewController.m */,
 				9738DEE018A8353700C200FA /* PhotoDetailsViewController.h */,
 				9738DEE118A8353700C200FA /* PhotoDetailsViewController.m */,
+				64D242BE18B8BCC80049729D /* Category2ViewController.h */,
+				64D242BF18B8BCC80049729D /* Category2ViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -228,6 +264,7 @@
 		97D466671890A35300CBCE81 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				6476517C18B921AB00F1E825 /* CategoryView */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -324,6 +361,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				97D466411890A28700CBCE81 /* Images.xcassets in Resources */,
+				64D242C518B8C61E0049729D /* CategoryViewFooterCell.xib in Resources */,
+				64D242BD18B89F020049729D /* CategoryViewItemCell.xib in Resources */,
+				64D242B118B87D280049729D /* CategoryViewHeaderCell.xib in Resources */,
 				97D466331890A28700CBCE81 /* InfoPlist.strings in Resources */,
 				97D4663C1890A28700CBCE81 /* Main.storyboard in Resources */,
 			);
@@ -385,8 +425,12 @@
 				97D466391890A28700CBCE81 /* AppDelegate.m in Sources */,
 				978FC31018A6D72C00F0CE07 /* FlickrViewController.m in Sources */,
 				978D1A2318A142D200F6DA1F /* FlickrClient.m in Sources */,
+				64D242C018B8BCC80049729D /* Category2ViewController.m in Sources */,
+				64D242C318B8C5F70049729D /* CategoryViewFooterCell.m in Sources */,
 				9738DEE218A8353700C200FA /* PhotoDetailsViewController.m in Sources */,
+				64D242B718B897DB0049729D /* CategoryViewItemCell.m in Sources */,
 				64C7E5D918A09F90000B84DD /* Place.m in Sources */,
+				64D242B418B885830049729D /* CategoryViewHeaderCell.m in Sources */,
 				97D466711890A8ED00CBCE81 /* DetailsViewController.m in Sources */,
 				97D466651890A32A00CBCE81 /* LandingViewController.m in Sources */,
 				64C7E5D618A078C0000B84DD /* Config.m in Sources */,
