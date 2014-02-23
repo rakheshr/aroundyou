@@ -1,5 +1,5 @@
 //
-//  DetailsHeaderView.h
+//  DetailsActionViewCell.h
 //  AroundYou
 //
 //  Created by Ankit Nitin Shah on 2/23/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailsHeaderView : UIView
+@interface DetailsActionViewCell : UITableViewCell
 
 @end
