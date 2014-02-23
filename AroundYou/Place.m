@@ -34,7 +34,7 @@
         self.icon = [dictionary valueForKey:@"icon"];
         self.rid = [dictionary valueForKey:@"id"];
         self.name = [dictionary valueForKey:@"name"];
-        self.open = [[dictionary valueForKey:@"opening_hours.open_now"] boolValue];
+        self.open = [[[dictionary valueForKey:@"opening_hours"] valueForKey:@"open_now"]boolValue];
         self.rating = [dictionary valueForKey:@"rating"];
         self.reference = [dictionary valueForKey:@"reference"];
         self.types = [dictionary valueForKey:@"types"];

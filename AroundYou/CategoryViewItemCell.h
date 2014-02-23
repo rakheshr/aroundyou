@@ -11,8 +11,9 @@
 @interface CategoryViewItemCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel* itemLabel;
-@property (nonatomic, weak) IBOutlet UILabel* itemRating;
+@property (nonatomic, weak) IBOutlet UILabel* status;
 @property (nonatomic, weak) IBOutlet UILabel* distance;
+@property (nonatomic, weak) IBOutlet UILabel* itemRating;
 @property (nonatomic, weak) IBOutlet UIView* viewForTab;
 
 @end

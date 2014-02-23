@@ -193,12 +193,17 @@
         if(place.rating){
             unichar bullet = 0x2022;
             ((CategoryViewItemCell*)cell).itemRating.text = [NSString stringWithFormat:@"Rating: %@  %@  ",[NSString stringWithFormat: @"%@", place.rating],[NSString stringWithCharacters:&bullet length:1]];
-        }else{
+        }/*else{
             for(NSLayoutConstraint* con in ((CategoryViewItemCell*)cell).itemRating.constraints){
                 if([con firstAttribute] == NSLayoutAttributeWidth){
                     con.constant = 0.0;
                 }
             }
+        }*/
+        
+        if(!place.open){
+            unichar bullet = 0x2022;
+            ((CategoryViewItemCell*)cell).status.text = [NSString stringWithFormat:@"Closed  %@  ",[NSString stringWithCharacters:&bullet length:1]];
         }
         
         CLLocation* second = [[CLLocation alloc] initWithLatitude:latitute longitude:longitude];
@@ -212,6 +217,7 @@
         }else{
             ((CategoryViewItemCell*)cell).distance.text = [NSString stringWithFormat:@"%d ft",(int)ft];
         }
+        
         // Do any additional setup after loading the view, typically from a nib
         
         
@@ -243,6 +249,13 @@
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [self.types objectAtIndex:section];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //TweetViewController* tweetViewController = [[TweetViewController alloc] initWithTweet: [self.tweets objectAtIndex:indexPath.row]];
+    //[tweetViewController setTweet: [self.tweets objectAtIndex:indexPath.row]];
+    //[self.navigationController pushViewController:tweetViewController animated:YES];
 }
 
 /*

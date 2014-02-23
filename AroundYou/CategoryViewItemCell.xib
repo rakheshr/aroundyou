@@ -43,13 +43,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNQ-Ng-hdJ">
+                                <rect key="frame" x="20" y="60" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="NBl-Tn-9R8" firstAttribute="leading" secondItem="paZ-zO-lbE" secondAttribute="leading" constant="20" id="1hG-8Y-GkR"/>
+                            <constraint firstItem="dNQ-Ng-hdJ" firstAttribute="leading" secondItem="pH8-vW-vVM" secondAttribute="trailing" id="4zd-wW-w84"/>
                             <constraint firstItem="pH8-vW-vVM" firstAttribute="leading" secondItem="Rwj-O2-HZL" secondAttribute="trailing" id="9fk-xq-KmL"/>
                             <constraint firstItem="NBl-Tn-9R8" firstAttribute="top" secondItem="Rwj-O2-HZL" secondAttribute="bottom" constant="9" id="Af6-ao-8OD"/>
+                            <constraint firstItem="NBl-Tn-9R8" firstAttribute="top" secondItem="dNQ-Ng-hdJ" secondAttribute="bottom" constant="9" id="Djv-o2-Rpz"/>
                             <constraint firstItem="5JF-pO-bQo" firstAttribute="top" secondItem="paZ-zO-lbE" secondAttribute="top" constant="15" id="KPR-Fz-qk3"/>
                             <constraint firstItem="Rwj-O2-HZL" firstAttribute="leading" secondItem="paZ-zO-lbE" secondAttribute="leading" constant="20" id="Tnc-QX-iY9"/>
                             <constraint firstItem="NBl-Tn-9R8" firstAttribute="top" secondItem="pH8-vW-vVM" secondAttribute="bottom" constant="9" id="YhP-3o-NgL"/>
@@ -70,9 +78,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="distance" destination="pH8-vW-vVM" id="emq-cG-fHr"/>
+                <outlet property="status" destination="pH8-vW-vVM" id="emq-cG-fHr"/>
                 <outlet property="itemLabel" destination="5JF-pO-bQo" id="TsP-du-u9U"/>
                 <outlet property="itemRating" destination="Rwj-O2-HZL" id="hY5-ch-BHd"/>
+                <outlet property="distance" destination="dNQ-Ng-hdJ" id="bb0-hf-Udx"/>
                 <outlet property="viewForTab" destination="paZ-zO-lbE" id="ECB-BY-u5t"/>
             </connections>
         </tableViewCell>
