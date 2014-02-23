@@ -67,24 +67,31 @@
     self.noOfRequests = self.places.count;
     for(int i = 0 ; i < self.places.count; i++){
         Place* place = [self.places objectAtIndex:i];
-        
+        if(place.isPopulatedFully){
+            [self onCompletePlaceDetailRequest];
+            continue;
+        }
         [client placeDetails:place.reference success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
             NSLog(@"Success: %@",data);
             NSDictionary* result = [data valueForKey:@"result"];
             Place* place = [[Place alloc] initWithDictionary:result];
             [self.places replaceObjectAtIndex:i withObject:place];
-            //[self.placesDetails insertObject: place atIndex:i];
-            self.noOfRequests--;
-            if(self.noOfRequests == 0){
-                NSLog(@"Reloading list view...");
-                self.placesDetails = self.places;
-                [self.tableView reloadData];
-            }
+            place.isPopulatedFully = true;
+            [self onCompletePlaceDetailRequest];
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id data) {
+            [self onCompletePlaceDetailRequest];
             NSLog(@"Failure: %@",error);
         }];
     }
     
+}
+- (void)onCompletePlaceDetailRequest{
+    self.noOfRequests--;
+    if(self.noOfRequests == 0){
+        NSLog(@"Reloading list view...");
+        self.placesDetails = self.places;
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning

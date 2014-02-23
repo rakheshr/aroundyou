@@ -12,6 +12,8 @@
 
 @interface Place : NSObject
 
+@property (nonatomic) bool isPopulatedFully;
+
 //readonly
 @property (nonatomic, strong, readonly) NSString* lat;
 @property (nonatomic, strong, readonly) NSString* lng;

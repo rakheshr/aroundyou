@@ -7,6 +7,7 @@
 //
 
 #define HEADER_IMAGE_HEIGHT 800
+#define NO_OF_TOP_PLACES_IN_CATEGORY 3
 
 #import "Category2ViewController.h"
 #import "GooglePlacesClient.h"
@@ -20,7 +21,7 @@
 
 @interface Category2ViewController ()
 
-@property (nonatomic,strong) NSMutableArray* places;
+//@property (nonatomic,strong) NSMutableArray* places;
 @property (nonatomic,strong) NSMutableDictionary* categoryPlaces;
 @property (nonatomic) int noOfRequests;
 
@@ -80,7 +81,7 @@
     selectionColor =[[[NSBundle mainBundle] loadNibNamed:@"HighLightView" owner:self options:nil] objectAtIndex:0];
     
     self.title = self.category;
-    self.places = [[NSMutableArray alloc] init];
+    //self.places = [[NSMutableArray alloc] init];
     
     GooglePlacesClient* client = [[GooglePlacesClient alloc] init];
     self.noOfRequests = self.types.count;
@@ -92,28 +93,56 @@
             NSArray* results = [data valueForKey:@"results"];
             for(NSDictionary* result in results){
                 Place* place = [[Place alloc] initWithDictionary:result];
-                [self.places addObject: place];
+                //[self.places addObject: place];
                 //for(int i = 0 ; i< place.types.count ; i++){
                 [[self.categoryPlaces objectForKey:[type objectAtIndex:0]] addObject: place];
                 //}
             }
-            
-            self.noOfRequests--;
-            if(self.noOfRequests == 0){
-                //load top values.
-                [self loadTopPlacesDetails];
-                NSLog(@"Reloading...");
-                [self.tableView reloadData];
+            int noOfPlacesToLoad = [results count];
+            if(noOfPlacesToLoad > NO_OF_TOP_PLACES_IN_CATEGORY){
+                noOfPlacesToLoad = NO_OF_TOP_PLACES_IN_CATEGORY;
             }
+            
+            [self loadTopPlacesDetailsForCategory: [self.categoryPlaces objectForKey:[type objectAtIndex:0]] noOfPlaces: noOfPlacesToLoad];
+             self.noOfRequests += noOfPlacesToLoad;
+             
+            [self onCompletePlaceDetailRequest];
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id data) {
+            [self onCompletePlaceDetailRequest];
             NSLog(@"Failure: %@",error);
         }];
     }
 
 }
+- (void)onCompletePlaceDetailRequest{
+    self.noOfRequests--;
+    if(self.noOfRequests == 0){
+        NSLog(@"Reloading list view...");
+        [self.tableView reloadData];
+    }
+}
 
-- (void)loadTopPlacesDetails{
+- (void)loadTopPlacesDetailsForCategory  :(NSMutableArray*) places noOfPlaces: (int) noOfPlaces{
     
+    GooglePlacesClient* client = [[GooglePlacesClient alloc] init];
+    for(int i = 0 ; i < noOfPlaces; i++){
+        Place* place = [places objectAtIndex:i];
+        if(place.isPopulatedFully){
+            [self onCompletePlaceDetailRequest];
+            continue;
+        }
+        [client placeDetails:place.reference success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
+            NSLog(@"Success: %@",data);
+            NSDictionary* result = [data valueForKey:@"result"];
+            Place* place = [[Place alloc] initWithDictionary:result];
+            [places replaceObjectAtIndex:i withObject:place];
+            place.isPopulatedFully = true;
+            [self onCompletePlaceDetailRequest];
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id data) {
+            [self onCompletePlaceDetailRequest];
+            NSLog(@"Failure: %@",error);
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -143,15 +172,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    int noOfPlacesDisplay = [[self.categoryPlaces objectForKey:[self.types objectAtIndex:section] ] count];
+    if(noOfPlacesDisplay > NO_OF_TOP_PLACES_IN_CATEGORY){
+        noOfPlacesDisplay = NO_OF_TOP_PLACES_IN_CATEGORY;
+    }
     // Return the number of rows in the section.
-    return [[self.categoryPlaces objectForKey:[self.types objectAtIndex:section] ] count] +2;//[self.places count];
+    return  noOfPlacesDisplay+2;//[self.places count];
 }
 
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    int noOfPlacesDisplay = [[self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section] ] count];
+    if(noOfPlacesDisplay > NO_OF_TOP_PLACES_IN_CATEGORY){
+        noOfPlacesDisplay = NO_OF_TOP_PLACES_IN_CATEGORY;
+    }
     if(indexPath.row == 0){
         return 110.0;
-    }else if(indexPath.row == ([[self.categoryPlaces objectForKey:[self.types objectAtIndex:        indexPath.section] ] count]+1)){
+    }else if(indexPath.row == (noOfPlacesDisplay+1)){
         return 40.0;
     }else{
         return 55.0;
@@ -161,6 +198,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
+    
+    int noOfPlacesDisplay = [[self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section] ] count];
+    if(noOfPlacesDisplay > NO_OF_TOP_PLACES_IN_CATEGORY){
+        noOfPlacesDisplay = NO_OF_TOP_PLACES_IN_CATEGORY;
+    }
+    
     if(indexPath.row == 0){
         static NSString *CellIdentifier = @"CategoryViewHeaderCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -176,12 +219,12 @@
             }
         }
         if([allPhotos count] > 0){
-            [headerImage setImageWithURL: [NSURL URLWithString:[allPhotos objectAtIndex:0]]];
+            [headerImage setImageWithURL: [NSURL URLWithString:[allPhotos objectAtIndex:0]] placeholderImage:[[UIImage alloc] init]];
         }/*else if([allPhotos count] > 1){
             [headerImage setImageWithURL
         }*/
         
-    }else if(indexPath.row == ([[self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section] ] count]+1)){
+    }else if(indexPath.row == noOfPlacesDisplay+1){
         static NSString *CellIdentifier = @"CategoryViewFooterCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     }else{
@@ -254,17 +297,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //TweetViewController* tweetViewController = [[TweetViewController alloc] initWithTweet: [self.tweets objectAtIndex:indexPath.row]];
-    //[tweetViewController setTweet: [self.tweets objectAtIndex:indexPath.row]];
-    //[self.navigationController pushViewController:tweetViewController animated:YES];
     
+    int noOfPlacesDisplay = [[self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section] ] count];
+    if(noOfPlacesDisplay > NO_OF_TOP_PLACES_IN_CATEGORY){
+        noOfPlacesDisplay = NO_OF_TOP_PLACES_IN_CATEGORY;
+    }
+    if(indexPath.row > 0 && indexPath.row <= noOfPlacesDisplay){
+        NSLog(@"Go to Place Details");
+        return;
+    }
     NSString * storyboardName = @"Main";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
     ContentListViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ContentListViewController"];
-    vc.places = [self.categoryPlaces objectForKey: [self.types objectAtIndex:0]];
+    vc.places = [self.categoryPlaces objectForKey: [self.types objectAtIndex: indexPath.section]];
     [self.navigationController pushViewController:vc animated:YES];
     //[self presentViewController:vc animated:YES completion:nil];
-    
 }
 
 /*
