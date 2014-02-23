@@ -84,7 +84,7 @@
     for(int i = 0 ; i < self.types.count ; i++){
         NSArray* type = [[NSArray alloc] initWithObjects: [self.types objectAtIndex:i], nil];
         [client searchPlaces:type latitute:latitute longitude:longitude success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
-            //NSLog(@"Success: %@",data);
+            NSLog(@"%@ Success: %@",[type objectAtIndex:0], data);
             NSArray* results = [data valueForKey:@"results"];
             NSLog(@"i: %d Category: %@ Resutls: %d",i, [type objectAtIndex:0], [results count]);
             if([results count] > 0){
