@@ -16,6 +16,7 @@
 #import "CategoryViewFooterCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "CoreLocation/CoreLocation.h"
+#import "ContentListViewController.h"
 
 @interface Category2ViewController ()
 
@@ -256,6 +257,14 @@
     //TweetViewController* tweetViewController = [[TweetViewController alloc] initWithTweet: [self.tweets objectAtIndex:indexPath.row]];
     //[tweetViewController setTweet: [self.tweets objectAtIndex:indexPath.row]];
     //[self.navigationController pushViewController:tweetViewController animated:YES];
+    
+    NSString * storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+    ContentListViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ContentListViewController"];
+    vc.places = self.places;
+    [self.navigationController pushViewController:vc animated:YES];
+    //[self presentViewController:vc animated:YES completion:nil];
+    
 }
 
 /*

@@ -10,6 +10,8 @@
 		1EDCC1F5A9CE43CEA4EB6481 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F72AF06922F547CB815CD9CA /* libPods.a */; };
 		6476518118B9520400F1E825 /* HighLightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6476518018B9520400F1E825 /* HighLightView.xib */; };
 		6476518418B9535900F1E825 /* HighLightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476518318B9535900F1E825 /* HighLightView.m */; };
+		6476518B18B9804700F1E825 /* ContentListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6476518A18B9804700F1E825 /* ContentListCell.xib */; };
+		6476518E18B9808000F1E825 /* ContentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476518D18B9808000F1E825 /* ContentListCell.m */; };
 		64B53E46189F333E0052FABB /* YelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B53E45189F333E0052FABB /* YelpClient.m */; };
 		64C7E5D318A068EA000B84DD /* GooglePlacesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D218A068EA000B84DD /* GooglePlacesClient.m */; };
 		64C7E5D618A078C0000B84DD /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D518A078C0000B84DD /* Config.m */; };
@@ -59,6 +61,9 @@
 		6476518018B9520400F1E825 /* HighLightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighLightView.xib; sourceTree = SOURCE_ROOT; };
 		6476518218B9535900F1E825 /* HighLightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighLightView.h; sourceTree = SOURCE_ROOT; };
 		6476518318B9535900F1E825 /* HighLightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighLightView.m; sourceTree = SOURCE_ROOT; };
+		6476518A18B9804700F1E825 /* ContentListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentListCell.xib; sourceTree = SOURCE_ROOT; };
+		6476518C18B9808000F1E825 /* ContentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentListCell.h; sourceTree = SOURCE_ROOT; };
+		6476518D18B9808000F1E825 /* ContentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentListCell.m; sourceTree = SOURCE_ROOT; };
 		64B53E44189F333E0052FABB /* YelpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClient.h; sourceTree = "<group>"; };
 		64B53E45189F333E0052FABB /* YelpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClient.m; sourceTree = "<group>"; };
 		64C7E5D118A068EA000B84DD /* GooglePlacesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooglePlacesClient.h; sourceTree = "<group>"; };
@@ -163,6 +168,16 @@
 				6476518318B9535900F1E825 /* HighLightView.m */,
 			);
 			name = CommonViews;
+			sourceTree = "<group>";
+		};
+		6476518918B9802F00F1E825 /* ContentListViews */ = {
+			isa = PBXGroup;
+			children = (
+				6476518A18B9804700F1E825 /* ContentListCell.xib */,
+				6476518C18B9808000F1E825 /* ContentListCell.h */,
+				6476518D18B9808000F1E825 /* ContentListCell.m */,
+			);
+			name = ContentListViews;
 			sourceTree = "<group>";
 		};
 		64B53E40189DD2E80052FABB /* API */ = {
@@ -281,6 +296,7 @@
 			children = (
 				6476517D18B924E700F1E825 /* CommonViews */,
 				6476517C18B921AB00F1E825 /* CategoryViews */,
+				6476518918B9802F00F1E825 /* ContentListViews */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -377,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97D466411890A28700CBCE81 /* Images.xcassets in Resources */,
+				6476518B18B9804700F1E825 /* ContentListCell.xib in Resources */,
 				64D242C518B8C61E0049729D /* CategoryViewFooterCell.xib in Resources */,
 				64D242BD18B89F020049729D /* CategoryViewItemCell.xib in Resources */,
 				64D242B118B87D280049729D /* CategoryViewHeaderCell.xib in Resources */,
@@ -453,6 +470,7 @@
 				97D466651890A32A00CBCE81 /* LandingViewController.m in Sources */,
 				64C7E5D618A078C0000B84DD /* Config.m in Sources */,
 				97D466351890A28700CBCE81 /* main.m in Sources */,
+				6476518E18B9808000F1E825 /* ContentListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

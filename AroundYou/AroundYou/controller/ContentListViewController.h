@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContentListViewController : UITableViewController
+@interface ContentListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic,strong) NSMutableArray* places;
 
 @end

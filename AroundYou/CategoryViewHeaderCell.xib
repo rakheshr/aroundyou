@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhL-i5-sCh">
-                                <rect key="frame" x="20" y="10" width="42" height="21"/>
+                                <rect key="frame" x="15" y="10" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fhL-i5-sCh" firstAttribute="leading" secondItem="Hyg-AL-Yha" secondAttribute="leading" constant="20" id="7FL-K5-Rns"/>
+                            <constraint firstItem="fhL-i5-sCh" firstAttribute="leading" secondItem="Hyg-AL-Yha" secondAttribute="leading" constant="15" id="7FL-K5-Rns"/>
                             <constraint firstItem="fhL-i5-sCh" firstAttribute="top" secondItem="Hyg-AL-Yha" secondAttribute="top" constant="10" id="Egn-bi-lgU"/>
                             <constraint firstAttribute="height" constant="40" id="MLC-yd-YN9"/>
                         </constraints>
