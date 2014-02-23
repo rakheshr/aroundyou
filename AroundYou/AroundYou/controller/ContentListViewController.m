@@ -42,9 +42,9 @@
 {
     [super viewDidLoad];
 
-    latitute=-33.8670522f;
-    longitude=151.1957362f;
-    
+    latitute=37.368830;//-33.8670522f;
+    longitude=-122.036350;//151.1957362f;
+
 	// Do any additional setup after loading the view.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

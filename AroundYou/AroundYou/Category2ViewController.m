@@ -33,6 +33,7 @@
     UIView *selectionColor;
     float latitute;
     float longitude;
+    NSMutableIndexSet* removeTypesIndexes;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -44,7 +45,7 @@
     return self;
 }
 
-- (id)initWithTypes:(NSArray*)types
+- (id)initWithTypes:(NSMutableArray*)types
 {
     self = [super init];
     if (self) {
@@ -54,20 +55,15 @@
     return self;
 }
 
-- (void)setTypes:(NSArray *)types{
-    _types = types;
-    self.categoryPlaces = [[NSMutableDictionary alloc] init];
-    for (int i = 0; i < types.count; i++) {
-        [self.categoryPlaces setObject:[[NSMutableArray alloc] init] forKey: [types objectAtIndex:i]];
-    }
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    latitute=-33.8670522f;
-    longitude=151.1957362f;
+    self.categoryPlaces = [[NSMutableDictionary alloc] init];
+    
+
+    latitute=37.368830;//-33.8670522f;
+    longitude=-122.036350;//151.1957362f;
 
 	// Do any additional setup after loading the view.
     self.tableView.delegate = self;
@@ -85,27 +81,36 @@
     
     GooglePlacesClient* client = [[GooglePlacesClient alloc] init];
     self.noOfRequests = self.types.count;
+    //NSArray* ;
+    removeTypesIndexes = [[NSMutableIndexSet alloc] init];
     for(int i = 0 ; i < self.types.count ; i++){
         NSArray* type = [[NSArray alloc] initWithObjects: [self.types objectAtIndex:i], nil];
-        
         [client searchPlaces:type latitute:latitute longitude:longitude success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
-            NSLog(@"Success: %@",data);
+            //NSLog(@"Success: %@",data);
             NSArray* results = [data valueForKey:@"results"];
-            for(NSDictionary* result in results){
-                Place* place = [[Place alloc] initWithDictionary:result];
-                //[self.places addObject: place];
-                //for(int i = 0 ; i< place.types.count ; i++){
-                [[self.categoryPlaces objectForKey:[type objectAtIndex:0]] addObject: place];
-                //}
-            }
-            int noOfPlacesToLoad = [results count];
-            if(noOfPlacesToLoad > NO_OF_TOP_PLACES_IN_CATEGORY){
-                noOfPlacesToLoad = NO_OF_TOP_PLACES_IN_CATEGORY;
+            NSLog(@"i: %d Category: %@ Resutls: %d",i, [type objectAtIndex:0], [results count]);
+            if([results count] > 0){
+                [self.categoryPlaces setObject:[[NSMutableArray alloc] init] forKey: [self.types objectAtIndex:i]];
+                
+                //NSLog(@"Removing category: %@",[type objectAtIndex:0]);
+                //[self.categoryPlaces removeObjectForKey:[type objectAtIndex:0]];
+                for(NSDictionary* result in results){
+                    Place* place = [[Place alloc] initWithDictionary:result];
+                    [[self.categoryPlaces objectForKey:[type objectAtIndex:0]] addObject: place];
+                    
+                }
+                int noOfPlacesToLoad = [results count];
+                if(noOfPlacesToLoad > NO_OF_TOP_PLACES_IN_CATEGORY){
+                    noOfPlacesToLoad = NO_OF_TOP_PLACES_IN_CATEGORY;
+                }
+                
+                self.noOfRequests += noOfPlacesToLoad;
+                [self loadTopPlacesDetailsForCategory: [self.categoryPlaces objectForKey:[type objectAtIndex:0]] noOfPlaces: noOfPlacesToLoad];
+                
+            }else{
+                [removeTypesIndexes addIndex:i];
             }
             
-            [self loadTopPlacesDetailsForCategory: [self.categoryPlaces objectForKey:[type objectAtIndex:0]] noOfPlaces: noOfPlacesToLoad];
-             self.noOfRequests += noOfPlacesToLoad;
-             
             [self onCompletePlaceDetailRequest];
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id data) {
             [self onCompletePlaceDetailRequest];
@@ -117,6 +122,9 @@
 - (void)onCompletePlaceDetailRequest{
     self.noOfRequests--;
     if(self.noOfRequests == 0){
+        //remove the types
+        [self.types removeObjectsAtIndexes: removeTypesIndexes];
+        [removeTypesIndexes removeAllIndexes];
         NSLog(@"Reloading list view...");
         [self.tableView reloadData];
     }
@@ -132,7 +140,7 @@
             continue;
         }
         [client placeDetails:place.reference success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
-            NSLog(@"Success: %@",data);
+            //NSLog(@"Success: %@",data);
             NSDictionary* result = [data valueForKey:@"result"];
             Place* place = [[Place alloc] initWithDictionary:result];
             [places replaceObjectAtIndex:i withObject:place];
@@ -209,20 +217,24 @@
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         ((CategoryViewHeaderCell*)cell).categoryHeaderLabel.text = [Place formattedCategory: [self.types objectAtIndex:indexPath.section] ];
         UIImageView* headerImage = ((CategoryViewHeaderCell*)cell).categoryHeaderImage;
-        NSMutableArray* allPhotos = [[NSMutableArray alloc] init];
+        
+        //NSMutableArray* allPhotos = [[NSMutableArray alloc] init];
+        bool imageFound = false;
         NSArray* allPlacesInCategory = [self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section]];
         for(Place* place in allPlacesInCategory){
             if([place.photos count] > 0){
                 for (NSString* pRef in place.photos) {
-                    [allPhotos addObject: [GooglePlacesClient getImageURL:pRef maxwidth:-1 maxheight:HEADER_IMAGE_HEIGHT] ];
+                    NSString* url = [GooglePlacesClient getImageURL:pRef maxwidth:-1 maxheight:HEADER_IMAGE_HEIGHT];
+                    [headerImage setImageWithURL: [NSURL URLWithString:url] placeholderImage:[[UIImage alloc] init]];
+                    imageFound = true;
+                    break;
+                    //[allPhotos addObject: [GooglePlacesClient getImageURL:pRef maxwidth:-1 maxheight:HEADER_IMAGE_HEIGHT] ];
                 }
             }
         }
-        if([allPhotos count] > 0){
-            [headerImage setImageWithURL: [NSURL URLWithString:[allPhotos objectAtIndex:0]] placeholderImage:[[UIImage alloc] init]];
-        }/*else if([allPhotos count] > 1){
-            [headerImage setImageWithURL
-        }*/
+        if(!imageFound){
+            headerImage.image= [[UIImage alloc] init];
+        }
         
     }else if(indexPath.row == noOfPlacesDisplay+1){
         static NSString *CellIdentifier = @"CategoryViewFooterCell";

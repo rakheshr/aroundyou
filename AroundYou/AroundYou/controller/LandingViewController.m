@@ -49,27 +49,27 @@
     Category2ViewController* categoryViewController = [segue destinationViewController];
     UIButton* button = (UIButton*)sender;
     if([button.titleLabel.text isEqualToString: @"Shop"]){
-        NSArray* types = [NSArray arrayWithObjects:@"shopping_mall",@"shoe_store",@"real_estate_agency",@"pet_store",@"jewelry_store",@"home_goods_store",@"hardware_store",@"grocery_or_supermarket",@"furniture_store",@"electronics_store",@"department_store",@"convenience_store",@"clothing_store",@"car_rental",@"car_dealer",@"book_store",@"bicycle_store", nil];
+        NSMutableArray* types = [NSMutableArray arrayWithObjects:@"shopping_mall",@"shoe_store",@"real_estate_agency",@"pet_store",@"jewelry_store",@"home_goods_store",@"hardware_store",@"grocery_or_supermarket",@"furniture_store",@"electronics_store",@"department_store",@"convenience_store",@"clothing_store",@"car_rental",@"car_dealer",@"book_store",@"bicycle_store", nil];
         categoryViewController.category = @"Shop";
         categoryViewController.types = types;
     }else if([button.titleLabel.text isEqualToString: @"Eat"]){
-        NSArray* types = [NSArray arrayWithObjects:@"bakery",@"cafe",@"meal_takeaway",@"meal_delivery",@"food",@"restaurant", nil];
+        NSMutableArray* types = [NSMutableArray arrayWithObjects:@"bakery",@"cafe",@"meal_takeaway",@"meal_delivery",@"food",@"restaurant", nil];
         categoryViewController.category = @"Eat";
         categoryViewController.types = types;
     }else if([button.titleLabel.text isEqualToString: @"Drink"]){
-        NSArray* types = [NSArray arrayWithObjects:@"bar",@"liquor_store",@"night_club", nil];
+        NSMutableArray* types = [NSMutableArray arrayWithObjects:@"bar",@"liquor_store",@"night_club", nil];
         categoryViewController.category = @"Drink";
         categoryViewController.types = types;
     }else if([button.titleLabel.text isEqualToString: @"Utilities"]){
-        NSArray* types = [NSArray arrayWithObjects:@"airport",@"atm",@"bank",@"bus_station",@"car_wash",@"fire_station",@"gas_station", @"gym", @"parking", @"train_station", nil];
+        NSMutableArray* types = [NSMutableArray arrayWithObjects:@"airport",@"atm",@"bank",@"bus_station",@"car_wash",@"fire_station",@"gas_station", @"gym", @"parking", @"train_station", nil];
         categoryViewController.category = @"Utilities";
         categoryViewController.types = types;
     }else if([button.titleLabel.text isEqualToString: @"Business"]){
-        NSArray* types = [NSArray arrayWithObjects:@"accounting",@"beauty_salon",@"doctor",@"electrician",@"finance",@"locksmith", @"hair_care", @"hospital", @"insurance_agency", @"lawyer", @"painter", @"pharmacy",nil];
+        NSMutableArray* types = [NSMutableArray arrayWithObjects:@"accounting",@"beauty_salon",@"doctor",@"electrician",@"finance",@"locksmith", @"hair_care", @"hospital", @"insurance_agency", @"lawyer", @"painter", @"pharmacy",nil];
         categoryViewController.category = @"Business";
         categoryViewController.types = types;
     }else if([button.titleLabel.text isEqualToString: @"Play"]){
-        NSArray* types = [NSArray arrayWithObjects:@"amusement_park",@"aquarium",@"art_gallery",@"bowling_alley",@"casino",@"library",@"movie_theater", @"museum", @"park", @"spa", @"zoo", nil];
+        NSMutableArray* types = [NSMutableArray arrayWithObjects:@"amusement_park",@"aquarium",@"art_gallery",@"bowling_alley",@"casino",@"library",@"movie_theater", @"museum", @"park", @"spa", @"zoo", nil];
         categoryViewController.category = @"Play";
         categoryViewController.types = types;
     }

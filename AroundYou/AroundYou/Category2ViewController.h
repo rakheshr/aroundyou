@@ -11,6 +11,6 @@
 @interface Category2ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSString* category;
-@property (nonatomic, strong) NSArray* types;
+@property (nonatomic, strong) NSMutableArray* types;
 
 @end
