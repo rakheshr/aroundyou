@@ -28,7 +28,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="K7a-q2-RWK" kind="push" id="VaN-ee-tmS"/>
+                                    <segue destination="k5j-rS-eKT" kind="push" id="Hz6-Gb-zOe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YM4-3e-578">
@@ -50,7 +50,7 @@
                                 </state>
                                 <connections>
                                     <action selector="play:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fTT-zW-O5q"/>
-                                    <segue destination="K7a-q2-RWK" kind="push" id="7SN-cO-YXo"/>
+                                    <segue destination="k5j-rS-eKT" kind="push" id="wJY-3F-MLu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkG-tp-kdc">
@@ -61,7 +61,7 @@
                                 </state>
                                 <connections>
                                     <action selector="drink:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3Gr-FQ-x29"/>
-                                    <segue destination="K7a-q2-RWK" kind="push" id="LQW-Hw-wFE"/>
+                                    <segue destination="k5j-rS-eKT" kind="push" id="Dbl-eo-9g8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNp-Xq-Jt5">
@@ -82,7 +82,7 @@
                                 </state>
                                 <connections>
                                     <action selector="activities:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ix2-uI-0Wc"/>
-                                    <segue destination="K7a-q2-RWK" kind="push" id="6fX-da-fzT"/>
+                                    <segue destination="k5j-rS-eKT" kind="push" id="YTS-UJ-hGC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CkB-GR-67a">
@@ -93,7 +93,7 @@
                                 </state>
                                 <connections>
                                     <action selector="utilities:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UAl-zb-4AX"/>
-                                    <segue destination="K7a-q2-RWK" kind="push" id="Rwc-Ha-bpd"/>
+                                    <segue destination="k5j-rS-eKT" kind="push" id="bLB-25-zle"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cp-9j-qDL">
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-103" y="-304"/>
+            <point key="canvasLocation" x="-131" y="-292"/>
         </scene>
         <!--Content List View Controller-->
         <scene sceneID="5EL-4y-KT2">
@@ -192,17 +192,17 @@
             </objects>
             <point key="canvasLocation" x="2718" y="176"/>
         </scene>
-        <!--Category View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="ysY-si-Ysl">
             <objects>
-                <tableViewController id="K7a-q2-RWK" customClass="CategoryViewController" sceneMemberID="viewController">
+                <tableViewController id="K7a-q2-RWK" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="22" sectionFooterHeight="22" id="9qL-bh-myr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryViewCell" rowHeight="49" id="nIa-z2-oO5">
-                                <rect key="frame" x="0.0" y="86" width="320" height="49"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nIa-z2-oO5" id="JS3-V1-y1i">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
@@ -257,7 +257,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4H-hZ-CTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="223"/>
+            <point key="canvasLocation" x="438" y="222"/>
         </scene>
         <!--Category2 View Controller-->
         <scene sceneID="rPY-zG-NS8">
@@ -485,7 +485,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VaN-ee-tmS"/>
+        <segue reference="Jjq-nF-sh6"/>
         <segue reference="oZb-f5-cQe"/>
     </inferredMetricsTieBreakers>
 </document>
