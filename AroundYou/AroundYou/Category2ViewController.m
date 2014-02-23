@@ -18,6 +18,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "CoreLocation/CoreLocation.h"
 #import "ContentListViewController.h"
+#import "DetailsViewController.h"
 
 @interface Category2ViewController ()
 
@@ -328,17 +329,23 @@
     if(noOfPlacesDisplay > NO_OF_TOP_PLACES_IN_CATEGORY){
         noOfPlacesDisplay = NO_OF_TOP_PLACES_IN_CATEGORY;
     }
-    if(indexPath.row > 0 && indexPath.row <= noOfPlacesDisplay){
-        NSLog(@"Go to Place Details");
-        return;
-    }
+    
     NSString * storyboardName = @"Main";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-    ContentListViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ContentListViewController"];
-    vc.places = [self.categoryPlaces objectForKey: [self.types objectAtIndex: indexPath.section]];
-    vc.category = [self.types objectAtIndex: indexPath.section];
-    [self.navigationController pushViewController:vc animated:YES];
-    //[self presentViewController:vc animated:YES completion:nil];
+    
+    if(indexPath.row > 0 && indexPath.row <= noOfPlacesDisplay){
+        //NSLog(@"Go to Place Details");
+        DetailsViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+        vc.place = [[self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row -1];
+        //[self.navigationController pushViewController:vc animated:YES];
+        [self presentViewController:vc animated:YES completion:nil];
+    }else{
+        ContentListViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ContentListViewController"];
+        vc.places = [self.categoryPlaces objectForKey: [self.types objectAtIndex: indexPath.section]];
+        vc.category = [self.types objectAtIndex: indexPath.section];
+        [self.navigationController pushViewController:vc animated:YES];
+        //[self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 /*

@@ -42,9 +42,38 @@
 {
     [super viewDidLoad];
 
+    latitute=37.368830;//-33.8670522f;
+    longitude=-122.036350;//151.1957362f;
+
     self.placeTitle.text = self.place.name;
     if(self.place.rating){
-        self.placeRatings.text = [NSString stringWithFormat:@"Rating: %@",[NSString stringWithFormat: @"%.1f", self.place.rating]];
+        self.placeRatings.text = [NSString stringWithFormat:@"%@",[NSString stringWithFormat: @"%.1f", self.place.rating]];
+        self.placeRatingsSymbol.text = @"*****";
+    }
+    
+    unichar bullet = 0x2022;
+    NSString* bulletStr =[NSString stringWithFormat:@"  %@  ",[NSString stringWithCharacters:&bullet  length:1]];
+    bool append = false;
+    if(self.place.noOfReviews > 0){
+        self.noReviews.text = [NSString stringWithFormat:@"%@ reviews",[NSString stringWithFormat: @"%d", self.place.noOfReviews]];
+        append= true ;
+    }
+    
+    if(self.place.priceLevel > 0){
+        NSString* priceLevel = (self.place.priceLevel == 1)? @"$" : ((self.place.priceLevel ==2)? @"$$": ((self.place.priceLevel ==3)? @"$$$": @"$$$$"));
+        self.priceLevel.text = [NSString stringWithFormat:@"%@%@",(append? bulletStr: @""),[NSString stringWithFormat: @"%@", priceLevel]];
+    }
+    
+    CLLocation* second = [[CLLocation alloc] initWithLatitude:latitute longitude:longitude];
+    CLLocation* first = [[CLLocation alloc] initWithLatitude:[self.place.lat floatValue] longitude:[self.place.lng floatValue]];
+    
+    CLLocationDistance distance = [first distanceFromLocation:second];
+    float miles = distance*0.00062137;
+    float ft = miles*5280;
+    if(miles > 0.1){
+        self.distance.text = [NSString stringWithFormat:@"%.1f mi",miles];
+    }else{
+        self.distance.text = [NSString stringWithFormat:@"%d ft",(int)ft];
     }
     
     // Uncomment the following line to preserve selection between presentations.
@@ -64,14 +93,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 0;
 }
