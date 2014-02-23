@@ -30,7 +30,6 @@
 @end
 
 @implementation Category2ViewController{
-    UIView *selectionColor;
     float latitute;
     float longitude;
     NSMutableIndexSet* removeTypesIndexes;
@@ -74,7 +73,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"CategoryViewFooterCell" bundle:nil] forCellReuseIdentifier:@"CategoryViewFooterCell"];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    selectionColor =[[[NSBundle mainBundle] loadNibNamed:@"HighLightView" owner:self options:nil] objectAtIndex:0];
     
     self.title = self.category;
     //self.places = [[NSMutableArray alloc] init];
@@ -311,7 +309,7 @@
          }*/
     }
 
-    cell.selectedBackgroundView = selectionColor;
+    cell.selectedBackgroundView = [[[NSBundle mainBundle] loadNibNamed:@"HighLightView" owner:self options:nil] objectAtIndex:0];
     return cell;
 }
 

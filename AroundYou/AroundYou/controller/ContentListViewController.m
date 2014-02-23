@@ -24,7 +24,6 @@
 @end
 
 @implementation ContentListViewController{
-    UIView *selectionColor;
     float latitute;
     float longitude;
 }
@@ -52,7 +51,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ContentListCell" bundle:nil] forCellReuseIdentifier:@"ContentListCell"];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    selectionColor =[[[NSBundle mainBundle] loadNibNamed:@"HighLightView" owner:self options:nil] objectAtIndex:0];
     
     self.title = [Place formattedCategory: self.category];
     self.placesDetails = [[NSMutableArray alloc] initWithCapacity: self.places.count];
@@ -195,7 +193,7 @@
     }
     
     
-    cell.selectedBackgroundView = selectionColor;
+    cell.selectedBackgroundView = [[[NSBundle mainBundle] loadNibNamed:@"HighLightView" owner:self options:nil] objectAtIndex:0];
     return cell;
 }
 

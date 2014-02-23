@@ -7,16 +7,30 @@
 //
 
 #import "DetailsViewController.h"
+#import "UIImageView+AFNetworking.h"
+#import "CoreLocation/CoreLocation.h"
 
 @interface DetailsViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *placeTitle;
+@property (weak, nonatomic) IBOutlet UILabel *placeRatings;
+@property (weak, nonatomic) IBOutlet UILabel *placeRatingsSymbol;
+@property (weak, nonatomic) IBOutlet UILabel *noReviews;
+@property (weak, nonatomic) IBOutlet UILabel *priceLevel;
+@property (weak, nonatomic) IBOutlet UILabel *distance; //time drive
+
 @end
 
-@implementation DetailsViewController
+@implementation DetailsViewController{
+    UIView *selectionColor;
+    float latitute;
+    float longitude;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithStyle:style];
+    self = [super init];
     if (self) {
         // Custom initialization
     }
@@ -27,6 +41,11 @@
 {
     [super viewDidLoad];
 
+    self.placeTitle.text = self.place.name;
+    if(self.place.rating){
+        self.placeRatings.text = [NSString stringWithFormat:@"Rating: %@",[NSString stringWithFormat: @"%.1f", self.place.rating]];
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

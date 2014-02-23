@@ -14,6 +14,8 @@
 		6476518E18B9808000F1E825 /* ContentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476518D18B9808000F1E825 /* ContentListCell.m */; };
 		6476519118B9DBB500F1E825 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476519018B9DBB500F1E825 /* Event.m */; };
 		6476519418B9DE6900F1E825 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476519318B9DE6900F1E825 /* Review.m */; };
+		6476519818BA434300F1E825 /* DetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476519718BA434300F1E825 /* DetailsHeaderView.m */; };
+		6476519A18BA435C00F1E825 /* DetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6476519918BA435C00F1E825 /* DetailsHeaderView.xib */; };
 		64B53E46189F333E0052FABB /* YelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B53E45189F333E0052FABB /* YelpClient.m */; };
 		64C7E5D318A068EA000B84DD /* GooglePlacesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D218A068EA000B84DD /* GooglePlacesClient.m */; };
 		64C7E5D618A078C0000B84DD /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D518A078C0000B84DD /* Config.m */; };
@@ -70,6 +72,9 @@
 		6476519018B9DBB500F1E825 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = SOURCE_ROOT; };
 		6476519218B9DE6900F1E825 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = SOURCE_ROOT; };
 		6476519318B9DE6900F1E825 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = SOURCE_ROOT; };
+		6476519618BA434300F1E825 /* DetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsHeaderView.h; sourceTree = SOURCE_ROOT; };
+		6476519718BA434300F1E825 /* DetailsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsHeaderView.m; sourceTree = SOURCE_ROOT; };
+		6476519918BA435C00F1E825 /* DetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsHeaderView.xib; sourceTree = SOURCE_ROOT; };
 		64B53E44189F333E0052FABB /* YelpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClient.h; sourceTree = "<group>"; };
 		64B53E45189F333E0052FABB /* YelpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClient.m; sourceTree = "<group>"; };
 		64C7E5D118A068EA000B84DD /* GooglePlacesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooglePlacesClient.h; sourceTree = "<group>"; };
@@ -186,6 +191,16 @@
 			name = ContentListViews;
 			sourceTree = "<group>";
 		};
+		6476519518BA42D900F1E825 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				6476519618BA434300F1E825 /* DetailsHeaderView.h */,
+				6476519718BA434300F1E825 /* DetailsHeaderView.m */,
+				6476519918BA435C00F1E825 /* DetailsHeaderView.xib */,
+			);
+			name = DetailsView;
+			sourceTree = "<group>";
+		};
 		64B53E40189DD2E80052FABB /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +315,7 @@
 		97D466671890A35300CBCE81 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				6476519518BA42D900F1E825 /* DetailsView */,
 				6476517D18B924E700F1E825 /* CommonViews */,
 				6476517C18B921AB00F1E825 /* CategoryViews */,
 				6476518918B9802F00F1E825 /* ContentListViews */,
@@ -403,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97D466411890A28700CBCE81 /* Images.xcassets in Resources */,
+				6476519A18BA435C00F1E825 /* DetailsHeaderView.xib in Resources */,
 				6476518B18B9804700F1E825 /* ContentListCell.xib in Resources */,
 				64D242C518B8C61E0049729D /* CategoryViewFooterCell.xib in Resources */,
 				64D242BD18B89F020049729D /* CategoryViewItemCell.xib in Resources */,
@@ -469,6 +486,7 @@
 				64C7E5D318A068EA000B84DD /* GooglePlacesClient.m in Sources */,
 				97D466391890A28700CBCE81 /* AppDelegate.m in Sources */,
 				6476519118B9DBB500F1E825 /* Event.m in Sources */,
+				6476519818BA434300F1E825 /* DetailsHeaderView.m in Sources */,
 				978FC31018A6D72C00F0CE07 /* FlickrViewController.m in Sources */,
 				978D1A2318A142D200F6DA1F /* FlickrClient.m in Sources */,
 				64D242C018B8BCC80049729D /* Category2ViewController.m in Sources */,
