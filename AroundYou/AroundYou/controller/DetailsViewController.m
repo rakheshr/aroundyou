@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *noReviews;
 @property (weak, nonatomic) IBOutlet UILabel *priceLevel;
 @property (weak, nonatomic) IBOutlet UILabel *distance; //time drive
+@property (weak, nonatomic) IBOutlet UIImageView *distanceIcon; //time drive
 
 @end
 
