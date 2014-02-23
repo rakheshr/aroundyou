@@ -245,7 +245,6 @@
         }
         if(!imageFound){
             NSLog(@"No image found for %@", [self.types objectAtIndex:indexPath.section]);
-            //headerImage.image= [[UIImage alloc] init];
             for(NSLayoutConstraint* con in headerImage.constraints){
                 if([con firstAttribute] == NSLayoutAttributeHeight){
                     con.constant = 0.0;

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Yahoo. All rights reserved.
 //
 
-#define CONTENT_LIST_IMAGE_HEIGHT 800
+#define CONTENT_LIST_IMAGE_HEIGHT 200
 
 #import "ContentListViewController.h"
 #import "ContentListCell.h"
@@ -184,6 +184,14 @@
         NSString* url = [GooglePlacesClient getImageURL:[place.photos objectAtIndex:0] maxwidth:-1 maxheight:CONTENT_LIST_IMAGE_HEIGHT];
         [((ContentListCell*)cell).placeImage setImageWithURL: [NSURL URLWithString:url] placeholderImage:[[UIImage alloc] init]];
         
+    }else{
+        //headerImage.image= [[UIImage alloc] init];
+        NSLog(@"No image found for: %@",place.name);
+        for(NSLayoutConstraint* con in ((ContentListCell*)cell).placeImage.constraints){
+            if([con firstAttribute] == NSLayoutAttributeWidth){
+                con.constant = 0.0;
+            }
+        }
     }
     
     
