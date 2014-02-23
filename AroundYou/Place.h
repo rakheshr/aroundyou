@@ -43,4 +43,6 @@
 
 -(id) initWithDictionary:(NSDictionary*) dictionary;
 
++(NSString*) formattedCategory: (NSString*) from;
+
 @end

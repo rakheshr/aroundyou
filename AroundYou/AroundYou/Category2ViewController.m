@@ -164,7 +164,7 @@
     if(indexPath.row == 0){
         static NSString *CellIdentifier = @"CategoryViewHeaderCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        ((CategoryViewHeaderCell*)cell).categoryHeaderLabel.text = [self.types objectAtIndex:indexPath.section];
+        ((CategoryViewHeaderCell*)cell).categoryHeaderLabel.text = [Place formattedCategory: [self.types objectAtIndex:indexPath.section] ];
         UIImageView* headerImage = ((CategoryViewHeaderCell*)cell).categoryHeaderImage;
         NSMutableArray* allPhotos = [[NSMutableArray alloc] init];
         NSArray* allPlacesInCategory = [self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section]];

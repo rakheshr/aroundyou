@@ -116,5 +116,11 @@
     return self;
 }
 
++(NSString*) formattedCategory: (NSString*) from{
+    from = [from stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+    from = [from capitalizedString];
+    return from;
+}
+
 @end
 

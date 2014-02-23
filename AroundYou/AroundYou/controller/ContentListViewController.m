@@ -167,7 +167,7 @@
         ((ContentListCell*)cell).distance.text = [NSString stringWithFormat:@"%d ft",(int)ft];
     }
     
-    ((ContentListCell*)cell).itemCategory.text = [place.types objectAtIndex:0];
+    ((ContentListCell*)cell).itemCategory.text = [Place formattedCategory: [place.types objectAtIndex:0]];
     if(!place.open){
         ((ContentListCell*)cell).status.text = [NSString stringWithFormat:@"%@Closed",bulletStr];
     }
