@@ -13,13 +13,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="321" height="109"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aON-F5-YUh">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aON-F5-YUh">
                         <rect key="frame" x="1" y="41" width="319" height="70"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="70" id="ZLM-3q-vy4"/>
-                        </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyg-AL-Yha">
                         <rect key="frame" x="1" y="1" width="319" height="40"/>
@@ -46,6 +43,7 @@
                     <constraint firstAttribute="trailing" secondItem="Hyg-AL-Yha" secondAttribute="trailing" constant="1" id="BmT-zt-a5p"/>
                     <constraint firstItem="aON-F5-YUh" firstAttribute="leading" secondItem="B9Y-2n-9e0" secondAttribute="leading" constant="1" id="Mwa-EG-RgS"/>
                     <constraint firstItem="Hyg-AL-Yha" firstAttribute="leading" secondItem="B9Y-2n-9e0" secondAttribute="leading" constant="1" id="OEY-pb-fpj"/>
+                    <constraint firstAttribute="bottom" secondItem="aON-F5-YUh" secondAttribute="bottom" id="bei-i6-3wG"/>
                     <constraint firstAttribute="trailing" secondItem="aON-F5-YUh" secondAttribute="trailing" constant="1" id="dlk-3R-hds"/>
                     <constraint firstItem="Hyg-AL-Yha" firstAttribute="top" secondItem="B9Y-2n-9e0" secondAttribute="top" constant="1" id="nYB-Xr-JOs"/>
                 </constraints>

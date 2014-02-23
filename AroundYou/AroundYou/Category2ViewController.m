@@ -195,6 +195,17 @@
         noOfPlacesDisplay = NO_OF_TOP_PLACES_IN_CATEGORY;
     }
     if(indexPath.row == 0){
+        bool imageFound = false;
+        NSArray* allPlacesInCategory = [self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section]];
+        for(Place* place in allPlacesInCategory){
+            if([place.photos count] > 0){
+                imageFound = true;
+                    break;
+            }
+        }
+        if(!imageFound){
+            return 40.0;
+        }
         return 110.0;
     }else if(indexPath.row == (noOfPlacesDisplay+1)){
         return 40.0;
@@ -233,7 +244,13 @@
             }
         }
         if(!imageFound){
-            headerImage.image= [[UIImage alloc] init];
+            NSLog(@"No image found for %@", [self.types objectAtIndex:indexPath.section]);
+            //headerImage.image= [[UIImage alloc] init];
+            for(NSLayoutConstraint* con in headerImage.constraints){
+                if([con firstAttribute] == NSLayoutAttributeHeight){
+                    con.constant = 0.0;
+                }
+            }
         }
         
     }else if(indexPath.row == noOfPlacesDisplay+1){
