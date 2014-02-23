@@ -6,15 +6,20 @@
 //  Copyright (c) 2014 Yahoo. All rights reserved.
 //
 
+#define CONTENT_LIST_IMAGE_HEIGHT 800
+
 #import "ContentListViewController.h"
 #import "ContentListCell.h"
 #import "Place.h"
 #import "UIImageView+AFNetworking.h"
 #import "CoreLocation/CoreLocation.h"
+#import "GooglePlacesClient.h"
 
 @interface ContentListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) int noOfRequests;
+@property (nonatomic,strong) NSMutableArray* placesDetails;
 
 @end
 
@@ -50,13 +55,36 @@
     selectionColor =[[[NSBundle mainBundle] loadNibNamed:@"HighLightView" owner:self options:nil] objectAtIndex:0];
     
     self.title = @"List";
-    //self.places = [[NSMutableArray alloc] init];
+    self.placesDetails = [[NSMutableArray alloc] initWithCapacity: self.places.count];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    GooglePlacesClient* client = [[GooglePlacesClient alloc] init];
+    self.noOfRequests = self.places.count;
+    for(int i = 0 ; i < self.places.count; i++){
+        Place* place = [self.places objectAtIndex:i];
+        
+        [client placeDetails:place.reference success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
+            NSLog(@"Success: %@",data);
+            NSDictionary* result = [data valueForKey:@"result"];
+            Place* place = [[Place alloc] initWithDictionary:result];
+            [self.places replaceObjectAtIndex:i withObject:place];
+            //[self.placesDetails insertObject: place atIndex:i];
+            self.noOfRequests--;
+            if(self.noOfRequests == 0){
+                NSLog(@"Reloading list view...");
+                self.placesDetails = self.places;
+                [self.tableView reloadData];
+            }
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id data) {
+            NSLog(@"Failure: %@",error);
+        }];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,16 +109,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return self.places.count;
+    return self.placesDetails.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 1;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 102.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,38 +128,56 @@
     UITableViewCell *cell;
         static NSString *CellIdentifier = @"ContentListCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        Place* place = [self.places objectAtIndex:indexPath.section];
+        Place* place = [self.placesDetails objectAtIndex:indexPath.section];
         
         // Configure the cell...
-        ((ContentListCell*)cell).itemLabel.text = place.name;
-        if(place.rating){
-            unichar bullet = 0x2022;
-            ((ContentListCell*)cell).itemRating.text = [NSString stringWithFormat:@"Rating: %@  %@  ",[NSString stringWithFormat: @"%@", place.rating],[NSString stringWithCharacters:&bullet length:1]];
-        }/*else{
-          for(NSLayoutConstraint* con in ((CategoryViewItemCell*)cell).itemRating.constraints){
+    unichar bullet = 0x2022;
+    NSString* bulletStr =[NSString stringWithFormat:@"  %@  ",[NSString stringWithCharacters:&bullet  length:1]];
+    bool append = false;
+    ((ContentListCell*)cell).itemLabel.text = [NSString stringWithFormat: @"%@", place.name];
+    if(place.rating){
+        ((ContentListCell*)cell).itemRating.text = [NSString stringWithFormat:@"Rating: %@",[NSString stringWithFormat: @"%.1f", place.rating]];
+        append= true ;
+    }/*else{
+        for(NSLayoutConstraint* con in ((CategoryViewItemCell*)cell).itemRating.constraints){
           if([con firstAttribute] == NSLayoutAttributeWidth){
           con.constant = 0.0;
           }
           }
-          }*/
+    }*/
+    if(place.noOfReviews > 0){
+        ((ContentListCell*)cell).noOfReviews.text = [NSString stringWithFormat:@"%@%@ reviews",(append? bulletStr: @""),[NSString stringWithFormat: @"%d", place.noOfReviews]];
+        append= true;
+    }
+    
+    if(place.priceLevel > 0){
+        NSString* priceLevel = (place.priceLevel == 1)? @"$" : ((place.priceLevel ==2)? @"$$": ((place.priceLevel ==3)? @"$$$": @"$$$$"));
+        ((ContentListCell*)cell).priceLevel.text = [NSString stringWithFormat:@"%@%@",(append? bulletStr: @""),[NSString stringWithFormat: @"%@", priceLevel]];
+    }
         
-        if(!place.open){
-            unichar bullet = 0x2022;
-            ((ContentListCell*)cell).status.text = [NSString stringWithFormat:@"Closed  %@  ",[NSString stringWithCharacters:&bullet length:1]];
-        }
+    CLLocation* second = [[CLLocation alloc] initWithLatitude:latitute longitude:longitude];
+    CLLocation* first = [[CLLocation alloc] initWithLatitude:[place.lat floatValue] longitude:[place.lng floatValue]];
+
+    CLLocationDistance distance = [first distanceFromLocation:second];
+    float miles = distance*0.00062137;
+    float ft = miles*5280;
+    if(miles > 0.1){
+        ((ContentListCell*)cell).distance.text = [NSString stringWithFormat:@"%.1f mi",miles];
+    }else{
+        ((ContentListCell*)cell).distance.text = [NSString stringWithFormat:@"%d ft",(int)ft];
+    }
+    
+    ((ContentListCell*)cell).itemCategory.text = [place.types objectAtIndex:0];
+    if(!place.open){
+        ((ContentListCell*)cell).status.text = [NSString stringWithFormat:@"%@Closed",bulletStr];
+    }
+    
+    NSLog(@"Place:%@",place.name);
+    if(place.photos.count > 0){
+        NSString* url = [GooglePlacesClient getImageURL:[place.photos objectAtIndex:0] maxwidth:-1 maxheight:CONTENT_LIST_IMAGE_HEIGHT];
+        [((ContentListCell*)cell).placeImage setImageWithURL: [NSURL URLWithString:url] placeholderImage:[[UIImage alloc] init]];
         
-        CLLocation* second = [[CLLocation alloc] initWithLatitude:latitute longitude:longitude];
-        CLLocation* first = [[CLLocation alloc] initWithLatitude:[place.lat floatValue] longitude:[place.lng floatValue]];
-        
-        CLLocationDistance distance = [first distanceFromLocation:second];
-        float miles = distance*0.00062137;
-        float ft = miles*5280;
-        if(miles < 0.1){
-            ((ContentListCell*)cell).distance.text = [NSString stringWithFormat:@"%.1f mi",miles];
-        }else{
-            ((ContentListCell*)cell).distance.text = [NSString stringWithFormat:@"%d ft",(int)ft];
-        }
-        
+    }
     
     
     cell.selectedBackgroundView = selectionColor;

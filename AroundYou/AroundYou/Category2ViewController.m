@@ -193,7 +193,7 @@
         ((CategoryViewItemCell*)cell).itemLabel.text = place.name;
         if(place.rating){
             unichar bullet = 0x2022;
-            ((CategoryViewItemCell*)cell).itemRating.text = [NSString stringWithFormat:@"Rating: %@  %@  ",[NSString stringWithFormat: @"%@", place.rating],[NSString stringWithCharacters:&bullet length:1]];
+            ((CategoryViewItemCell*)cell).itemRating.text = [NSString stringWithFormat:@"Rating: %@  %@  ",[NSString stringWithFormat: @"%.1f", place.rating],[NSString stringWithCharacters:&bullet length:1]];
         }/*else{
             for(NSLayoutConstraint* con in ((CategoryViewItemCell*)cell).itemRating.constraints){
                 if([con firstAttribute] == NSLayoutAttributeWidth){
@@ -213,7 +213,7 @@
         CLLocationDistance distance = [first distanceFromLocation:second];
         float miles = distance*0.00062137;
         float ft = miles*5280;
-        if(miles < 0.1){
+        if(miles > 0.1){
             ((CategoryViewItemCell*)cell).distance.text = [NSString stringWithFormat:@"%.1f mi",miles];
         }else{
             ((CategoryViewItemCell*)cell).distance.text = [NSString stringWithFormat:@"%d ft",(int)ft];
@@ -261,7 +261,7 @@
     NSString * storyboardName = @"Main";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
     ContentListViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ContentListViewController"];
-    vc.places = self.places;
+    vc.places = [self.categoryPlaces objectForKey: [self.types objectAtIndex:0]];
     [self.navigationController pushViewController:vc animated:YES];
     //[self presentViewController:vc animated:YES completion:nil];
     

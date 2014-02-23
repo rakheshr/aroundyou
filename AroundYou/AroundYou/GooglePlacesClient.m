@@ -9,7 +9,9 @@
 #import "GooglePlacesClient.h"
 #import "AFNetworking.h"
 
-#define GOOGLE_API_KEY "AIzaSyBE95bVaivtbIYDouJK9CB3h6lyRzvYPAw"
+#define GOOGLE_API_KEY "AIzaSyCaneVaTyKTNzRpLat8C8TzaqpGs6sHxnM"
+//"AIzaSyCE-44YjiGJtME1dHhXiHgmLkd7HvciMig"
+//AIzaSyBE95bVaivtbIYDouJK9CB3h6lyRzvYPAw"
 
 @implementation GooglePlacesClient
 

@@ -14,6 +14,8 @@
 
 - (void) searchPlaces:(NSArray*)types latitute:(float)latitute longitude:(float)longitude success:(void (^)(NSURLRequest* request, NSHTTPURLResponse* response, id data))success failure:(void (^)(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error, id data))failure;
 
+- (void) placeDetails:(NSString*)reference success:(void (^)(NSURLRequest* request, NSHTTPURLResponse* response, id data))success failure:(void (^)(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error, id data))failure;
+
 + (NSString*) getImageURL:(NSString*)reference maxwidth:(int) maxwidth maxheight:(int) maxheight;
 
 @end
