@@ -11,5 +11,6 @@
 @interface ContentListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray* places;
+@property (nonatomic,strong) NSString* category;
 
 @end

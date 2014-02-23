@@ -310,6 +310,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
     ContentListViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ContentListViewController"];
     vc.places = [self.categoryPlaces objectForKey: [self.types objectAtIndex: indexPath.section]];
+    vc.category = [self.types objectAtIndex: indexPath.section];
     [self.navigationController pushViewController:vc animated:YES];
     //[self presentViewController:vc animated:YES completion:nil];
 }
