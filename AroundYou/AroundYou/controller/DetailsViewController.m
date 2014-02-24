@@ -15,6 +15,7 @@
 #import "DetailsMoreInfoCell.h"
 #import "DetailsReviewCell.h"
 #import "DetailsSectionHeaderCell.h"
+#import "ImageScrollViewCell.h"
 
 @interface DetailsViewController ()
 
@@ -68,6 +69,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"DetailsMoreInfoCell" bundle:nil] forCellReuseIdentifier:@"DetailsMoreInfoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DetailsReviewCell" bundle:nil] forCellReuseIdentifier:@"DetailsReviewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DetailsSectionHeaderCell" bundle:nil] forCellReuseIdentifier:@"DetailsSectionHeaderCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ImageScrollViewCell" bundle:nil] forCellReuseIdentifier:@"ImageScrollViewCell"];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
@@ -258,7 +260,11 @@
             cell.selectedBackgroundView = [[[NSBundle mainBundle] loadNibNamed:@"HighLightView" owner:self options:nil] objectAtIndex:0];
         //}
     }else if(indexPath.section == sectionPhotoIndex){
-        cell = [[UITableViewCell alloc] init];
+        static NSString *CellIdentifier = @"ImageScrollViewCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        ((ImageScrollViewCell*)cell).widthImage = 146;
+        ((ImageScrollViewCell*)cell).imagesList = [NSArray arrayWithArray:self.place.photos];
+        
     }else if(indexPath.section == 0){
         static NSString *CellIdentifier = @"DetailsHeaderViewCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
