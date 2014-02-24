@@ -297,8 +297,8 @@
 		97D4662F1890A28700CBCE81 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				97D466301890A28700CBCE81 /* AroundYou-Info.plist */,
 				97D466311890A28700CBCE81 /* InfoPlist.strings */,
+				97D466301890A28700CBCE81 /* AroundYou-Info.plist */,
 				97D466341890A28700CBCE81 /* main.m */,
 				97D466361890A28700CBCE81 /* AroundYou-Prefix.pch */,
 			);

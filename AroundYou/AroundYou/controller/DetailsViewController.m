@@ -5,6 +5,7 @@
 //  Created by Rakhesh on 1/22/14.
 //  Copyright (c) 2014 Yahoo. All rights reserved.
 //
+#define MAX_TEXTVIEW_WIDTH 320-57
 
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
@@ -172,7 +173,18 @@
         if(indexPath.row == 0){
             return 44.0;
         }
-        return 129.0;
+        CGSize boundingSize = CGSizeMake(MAX_TEXTVIEW_WIDTH, 0.0);
+        
+        Review* rv = [self.place.reviews objectAtIndex:indexPath.row -1];
+        //height for review text
+        CGRect textRect = [[rv text]
+                           boundingRectWithSize:boundingSize
+                           options:NSStringDrawingUsesLineFragmentOrigin
+                           attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10.0]}
+                           context:nil];
+        CGFloat requiredHeight = textRect.size.height + 80.0;
+        NSLog(@"requiredHeight: %f",requiredHeight);
+        return requiredHeight;//129.0;
     }
     if(indexPath.section == sectionMoreInfoIndex){
         return 44.0;
