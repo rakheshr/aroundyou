@@ -209,7 +209,7 @@
     
     //NSLog(@"Go to Place Details");
     DetailsViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
-    vc.place = [self.places objectAtIndex:indexPath.row];
+    vc.place = [self.places objectAtIndex:indexPath.section];
     [self.navigationController pushViewController:vc animated:YES];
     //[self presentViewController:vc animated:YES completion:nil];
     
@@ -223,7 +223,7 @@
 }
 */
 
-/*
+/*/Users/anshah/Ankit/work/iphone/project/aroundyou/AroundYou/AroundYou/en.lproj/InfoPlist.strings
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
