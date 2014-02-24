@@ -85,7 +85,7 @@
     for(int i = 0 ; i < self.types.count ; i++){
         NSArray* type = [[NSArray alloc] initWithObjects: [self.types objectAtIndex:i], nil];
         [client searchPlaces:type latitute:latitute longitude:longitude success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
-            NSLog(@"%@ Success: %@",[type objectAtIndex:0], data);
+            //NSLog(@"%@ Success: %@",[type objectAtIndex:0], data);
             NSArray* results = [data valueForKey:@"results"];
             NSLog(@"i: %d Category: %@ Resutls: %d",i, [type objectAtIndex:0], [results count]);
             if([results count] > 0){
@@ -139,7 +139,7 @@
             continue;
         }
         [client placeDetails:place.reference success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
-            //NSLog(@"Success: %@",data);
+            NSLog(@"Success: %@",data);
             NSDictionary* result = [data valueForKey:@"result"];
             Place* place = [[Place alloc] initWithDictionary:result];
             [places replaceObjectAtIndex:i withObject:place];
@@ -337,8 +337,8 @@
         //NSLog(@"Go to Place Details");
         DetailsViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
         vc.place = [[self.categoryPlaces objectForKey:[self.types objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row -1];
-        //[self.navigationController pushViewController:vc animated:YES];
-        [self presentViewController:vc animated:YES completion:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        //[self presentViewController:vc animated:YES completion:nil];
     }else{
         ContentListViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ContentListViewController"];
         vc.places = [self.categoryPlaces objectForKey: [self.types objectAtIndex: indexPath.section]];

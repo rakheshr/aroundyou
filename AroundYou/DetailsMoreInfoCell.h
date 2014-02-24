@@ -10,4 +10,8 @@
 
 @interface DetailsMoreInfoCell : UITableViewCell
 
+
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *infoDetail;
+
 @end

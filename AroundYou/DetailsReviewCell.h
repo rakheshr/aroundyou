@@ -10,4 +10,8 @@
 
 @interface DetailsReviewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *authorName;
+@property (weak, nonatomic) IBOutlet UILabel *authoredTime;
+@property (weak, nonatomic) IBOutlet UILabel *authoredSubject;
+@property (weak, nonatomic) IBOutlet UILabel *authorComment;
 @end

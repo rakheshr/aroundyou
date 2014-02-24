@@ -14,6 +14,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "CoreLocation/CoreLocation.h"
 #import "GooglePlacesClient.h"
+#import "DetailsViewController.h"
 
 @interface ContentListViewController ()
 
@@ -125,7 +126,7 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 102.0;
+    return 112.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -203,6 +204,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString * storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+    
+    //NSLog(@"Go to Place Details");
+    DetailsViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+    vc.place = [self.places objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
+    //[self presentViewController:vc animated:YES completion:nil];
+    
 }
 /*
 // Override to support conditional editing of the table view.

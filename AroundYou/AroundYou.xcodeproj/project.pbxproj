@@ -14,8 +14,16 @@
 		6476518E18B9808000F1E825 /* ContentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476518D18B9808000F1E825 /* ContentListCell.m */; };
 		6476519118B9DBB500F1E825 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476519018B9DBB500F1E825 /* Event.m */; };
 		6476519418B9DE6900F1E825 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476519318B9DE6900F1E825 /* Review.m */; };
-		6476519818BA434300F1E825 /* DetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476519718BA434300F1E825 /* DetailsHeaderView.m */; };
-		6476519A18BA435C00F1E825 /* DetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6476519918BA435C00F1E825 /* DetailsHeaderView.xib */; };
+		6476519A18BA435C00F1E825 /* DetailsHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6476519918BA435C00F1E825 /* DetailsHeaderViewCell.xib */; };
+		6476519D18BAB51B00F1E825 /* DetailsHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476519C18BAB51B00F1E825 /* DetailsHeaderViewCell.m */; };
+		647651A018BAB61A00F1E825 /* DetailsActionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476519F18BAB61A00F1E825 /* DetailsActionViewCell.m */; };
+		647651A218BAB63300F1E825 /* DetailsActionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 647651A118BAB63300F1E825 /* DetailsActionViewCell.xib */; };
+		647651A418BAB65600F1E825 /* DetailsMoreInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 647651A318BAB65600F1E825 /* DetailsMoreInfoCell.xib */; };
+		647651A718BAB68900F1E825 /* DetailsMoreInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 647651A618BAB68900F1E825 /* DetailsMoreInfoCell.m */; };
+		647651AA18BAB77E00F1E825 /* DetailsSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 647651A918BAB77E00F1E825 /* DetailsSectionHeaderCell.m */; };
+		647651AC18BAB79C00F1E825 /* DetailsSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 647651AB18BAB79C00F1E825 /* DetailsSectionHeaderCell.xib */; };
+		647651AF18BAB7E000F1E825 /* DetailsReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 647651AE18BAB7E000F1E825 /* DetailsReviewCell.m */; };
+		647651B118BAB7F400F1E825 /* DetailsReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 647651B018BAB7F400F1E825 /* DetailsReviewCell.xib */; };
 		64B53E46189F333E0052FABB /* YelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B53E45189F333E0052FABB /* YelpClient.m */; };
 		64C7E5D318A068EA000B84DD /* GooglePlacesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D218A068EA000B84DD /* GooglePlacesClient.m */; };
 		64C7E5D618A078C0000B84DD /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7E5D518A078C0000B84DD /* Config.m */; };
@@ -72,9 +80,21 @@
 		6476519018B9DBB500F1E825 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = SOURCE_ROOT; };
 		6476519218B9DE6900F1E825 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = SOURCE_ROOT; };
 		6476519318B9DE6900F1E825 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = SOURCE_ROOT; };
-		6476519618BA434300F1E825 /* DetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsHeaderView.h; sourceTree = SOURCE_ROOT; };
-		6476519718BA434300F1E825 /* DetailsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsHeaderView.m; sourceTree = SOURCE_ROOT; };
-		6476519918BA435C00F1E825 /* DetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsHeaderView.xib; sourceTree = SOURCE_ROOT; };
+		6476519918BA435C00F1E825 /* DetailsHeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsHeaderViewCell.xib; sourceTree = SOURCE_ROOT; };
+		6476519B18BAB51B00F1E825 /* DetailsHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsHeaderViewCell.h; sourceTree = SOURCE_ROOT; };
+		6476519C18BAB51B00F1E825 /* DetailsHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsHeaderViewCell.m; sourceTree = SOURCE_ROOT; };
+		6476519E18BAB61A00F1E825 /* DetailsActionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsActionViewCell.h; sourceTree = SOURCE_ROOT; };
+		6476519F18BAB61A00F1E825 /* DetailsActionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsActionViewCell.m; sourceTree = SOURCE_ROOT; };
+		647651A118BAB63300F1E825 /* DetailsActionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsActionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		647651A318BAB65600F1E825 /* DetailsMoreInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsMoreInfoCell.xib; sourceTree = SOURCE_ROOT; };
+		647651A518BAB68900F1E825 /* DetailsMoreInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsMoreInfoCell.h; sourceTree = SOURCE_ROOT; };
+		647651A618BAB68900F1E825 /* DetailsMoreInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsMoreInfoCell.m; sourceTree = SOURCE_ROOT; };
+		647651A818BAB77E00F1E825 /* DetailsSectionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsSectionHeaderCell.h; sourceTree = SOURCE_ROOT; };
+		647651A918BAB77E00F1E825 /* DetailsSectionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsSectionHeaderCell.m; sourceTree = SOURCE_ROOT; };
+		647651AB18BAB79C00F1E825 /* DetailsSectionHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsSectionHeaderCell.xib; sourceTree = SOURCE_ROOT; };
+		647651AD18BAB7E000F1E825 /* DetailsReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsReviewCell.h; sourceTree = SOURCE_ROOT; };
+		647651AE18BAB7E000F1E825 /* DetailsReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsReviewCell.m; sourceTree = SOURCE_ROOT; };
+		647651B018BAB7F400F1E825 /* DetailsReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsReviewCell.xib; sourceTree = SOURCE_ROOT; };
 		64B53E44189F333E0052FABB /* YelpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClient.h; sourceTree = "<group>"; };
 		64B53E45189F333E0052FABB /* YelpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClient.m; sourceTree = "<group>"; };
 		64C7E5D118A068EA000B84DD /* GooglePlacesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooglePlacesClient.h; sourceTree = "<group>"; };
@@ -194,9 +214,21 @@
 		6476519518BA42D900F1E825 /* DetailsView */ = {
 			isa = PBXGroup;
 			children = (
-				6476519618BA434300F1E825 /* DetailsHeaderView.h */,
-				6476519718BA434300F1E825 /* DetailsHeaderView.m */,
-				6476519918BA435C00F1E825 /* DetailsHeaderView.xib */,
+				6476519918BA435C00F1E825 /* DetailsHeaderViewCell.xib */,
+				6476519B18BAB51B00F1E825 /* DetailsHeaderViewCell.h */,
+				6476519C18BAB51B00F1E825 /* DetailsHeaderViewCell.m */,
+				647651A118BAB63300F1E825 /* DetailsActionViewCell.xib */,
+				6476519E18BAB61A00F1E825 /* DetailsActionViewCell.h */,
+				6476519F18BAB61A00F1E825 /* DetailsActionViewCell.m */,
+				647651A318BAB65600F1E825 /* DetailsMoreInfoCell.xib */,
+				647651A518BAB68900F1E825 /* DetailsMoreInfoCell.h */,
+				647651A618BAB68900F1E825 /* DetailsMoreInfoCell.m */,
+				647651AB18BAB79C00F1E825 /* DetailsSectionHeaderCell.xib */,
+				647651A818BAB77E00F1E825 /* DetailsSectionHeaderCell.h */,
+				647651A918BAB77E00F1E825 /* DetailsSectionHeaderCell.m */,
+				647651B018BAB7F400F1E825 /* DetailsReviewCell.xib */,
+				647651AD18BAB7E000F1E825 /* DetailsReviewCell.h */,
+				647651AE18BAB7E000F1E825 /* DetailsReviewCell.m */,
 			);
 			name = DetailsView;
 			sourceTree = "<group>";
@@ -419,8 +451,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				97D466411890A28700CBCE81 /* Images.xcassets in Resources */,
-				6476519A18BA435C00F1E825 /* DetailsHeaderView.xib in Resources */,
+				647651AC18BAB79C00F1E825 /* DetailsSectionHeaderCell.xib in Resources */,
+				647651A418BAB65600F1E825 /* DetailsMoreInfoCell.xib in Resources */,
+				647651B118BAB7F400F1E825 /* DetailsReviewCell.xib in Resources */,
+				6476519A18BA435C00F1E825 /* DetailsHeaderViewCell.xib in Resources */,
 				6476518B18B9804700F1E825 /* ContentListCell.xib in Resources */,
+				647651A218BAB63300F1E825 /* DetailsActionViewCell.xib in Resources */,
 				64D242C518B8C61E0049729D /* CategoryViewFooterCell.xib in Resources */,
 				64D242BD18B89F020049729D /* CategoryViewItemCell.xib in Resources */,
 				64D242B118B87D280049729D /* CategoryViewHeaderCell.xib in Resources */,
@@ -480,25 +516,29 @@
 			files = (
 				64B53E46189F333E0052FABB /* YelpClient.m in Sources */,
 				6476519418B9DE6900F1E825 /* Review.m in Sources */,
+				6476519D18BAB51B00F1E825 /* DetailsHeaderViewCell.m in Sources */,
 				97D4666B1890A6FC00CBCE81 /* ContentListViewController.m in Sources */,
 				97D4666E1890A73800CBCE81 /* CategoryViewController.m in Sources */,
 				97BC911C18A21CEE00192447 /* Photo.m in Sources */,
 				64C7E5D318A068EA000B84DD /* GooglePlacesClient.m in Sources */,
 				97D466391890A28700CBCE81 /* AppDelegate.m in Sources */,
 				6476519118B9DBB500F1E825 /* Event.m in Sources */,
-				6476519818BA434300F1E825 /* DetailsHeaderView.m in Sources */,
 				978FC31018A6D72C00F0CE07 /* FlickrViewController.m in Sources */,
 				978D1A2318A142D200F6DA1F /* FlickrClient.m in Sources */,
+				647651AA18BAB77E00F1E825 /* DetailsSectionHeaderCell.m in Sources */,
 				64D242C018B8BCC80049729D /* Category2ViewController.m in Sources */,
 				6476518418B9535900F1E825 /* HighLightView.m in Sources */,
 				64D242C318B8C5F70049729D /* CategoryViewFooterCell.m in Sources */,
 				9738DEE218A8353700C200FA /* PhotoDetailsViewController.m in Sources */,
 				64D242B718B897DB0049729D /* CategoryViewItemCell.m in Sources */,
 				64C7E5D918A09F90000B84DD /* Place.m in Sources */,
+				647651A018BAB61A00F1E825 /* DetailsActionViewCell.m in Sources */,
 				64D242B418B885830049729D /* CategoryViewHeaderCell.m in Sources */,
 				97D466711890A8ED00CBCE81 /* DetailsViewController.m in Sources */,
 				97D466651890A32A00CBCE81 /* LandingViewController.m in Sources */,
 				64C7E5D618A078C0000B84DD /* Config.m in Sources */,
+				647651AF18BAB7E000F1E825 /* DetailsReviewCell.m in Sources */,
+				647651A718BAB68900F1E825 /* DetailsMoreInfoCell.m in Sources */,
 				97D466351890A28700CBCE81 /* main.m in Sources */,
 				6476518E18B9808000F1E825 /* ContentListCell.m in Sources */,
 			);

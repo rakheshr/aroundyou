@@ -26,4 +26,11 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)callAction:(id)sender {
+}
+
+- (IBAction)saveAction:(id)sender {
+}
+- (IBAction)shareAction:(id)sender {
+}
 @end

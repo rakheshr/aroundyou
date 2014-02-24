@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4447" systemVersion="13A451" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3671"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CYn-Xj-qKS" customClass="DetailsSectionHeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CYn-Xj-qKS" id="d63-Kj-ESj">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaR-dO-jKE">
+                        <rect key="frame" x="1" y="1" width="318" height="41"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tN3-9l-vmu">
+                                <rect key="frame" x="15" y="10" width="283" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.49769046532846717" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tN3-9l-vmu" firstAttribute="top" secondItem="iaR-dO-jKE" secondAttribute="top" constant="10" id="2sJ-Mr-DHe"/>
+                            <constraint firstAttribute="bottom" secondItem="tN3-9l-vmu" secondAttribute="bottom" constant="10" id="4Dk-2S-96g"/>
+                            <constraint firstItem="tN3-9l-vmu" firstAttribute="leading" secondItem="iaR-dO-jKE" secondAttribute="leading" constant="15" id="Mqa-UF-9tf"/>
+                            <constraint firstAttribute="trailing" secondItem="tN3-9l-vmu" secondAttribute="trailing" constant="20" id="V2v-Ve-nHH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.81999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="iaR-dO-jKE" secondAttribute="bottom" constant="1" id="5vh-kE-QUm"/>
+                    <constraint firstAttribute="trailing" secondItem="iaR-dO-jKE" secondAttribute="trailing" constant="1" id="aaC-pS-Abp"/>
+                    <constraint firstItem="iaR-dO-jKE" firstAttribute="top" secondItem="d63-Kj-ESj" secondAttribute="top" constant="1" id="ajd-QD-VJB"/>
+                    <constraint firstItem="iaR-dO-jKE" firstAttribute="leading" secondItem="d63-Kj-ESj" secondAttribute="leading" constant="1" id="nDq-Eu-qqy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="sectionHeaderLabel" destination="tN3-9l-vmu" id="Qsy-vn-UhS"/>
+            </connections>
+        </tableViewCell>
     </objects>
 </document>

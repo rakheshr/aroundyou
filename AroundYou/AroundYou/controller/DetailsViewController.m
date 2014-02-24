@@ -9,6 +9,11 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "CoreLocation/CoreLocation.h"
+#import "DetailsActionViewCell.h"
+#import "DetailsHeaderViewCell.h"
+#import "DetailsMoreInfoCell.h"
+#import "DetailsReviewCell.h"
+#import "DetailsSectionHeaderCell.h"
 
 @interface DetailsViewController ()
 
@@ -27,6 +32,10 @@
     UIView *selectionColor;
     float latitute;
     float longitude;
+    int sectionPhotoIndex;
+    int sectionReviewIndex;
+    int sectionMoreInfoIndex;
+    int noOfMoreInfoRows;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -42,13 +51,31 @@
 {
     [super viewDidLoad];
 
+    //self.navigationController.navigationBarHidden = YES;
+    
     latitute=37.368830;//-33.8670522f;
     longitude=-122.036350;//151.1957362f;
+    sectionReviewIndex = -1;
+    sectionPhotoIndex = -1;
+    sectionMoreInfoIndex = 2;
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailsHeaderViewCell" bundle:nil] forCellReuseIdentifier:@"DetailsHeaderViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailsActionViewCell" bundle:nil] forCellReuseIdentifier:@"DetailsActionViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailsMoreInfoCell" bundle:nil] forCellReuseIdentifier:@"DetailsMoreInfoCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailsReviewCell" bundle:nil] forCellReuseIdentifier:@"DetailsReviewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailsSectionHeaderCell" bundle:nil] forCellReuseIdentifier:@"DetailsSectionHeaderCell"];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     self.placeTitle.text = self.place.name;
     if(self.place.rating){
+        int roundedRating = roundf(self.place.rating);
+        NSString* stars = (roundedRating == 5)? @"*****": ((roundedRating == 4)? @"****" : ((roundedRating==3? @"***": ((roundedRating==2)? @"**": @"*"))));
         self.placeRatings.text = [NSString stringWithFormat:@"%@",[NSString stringWithFormat: @"%.1f", self.place.rating]];
-        self.placeRatingsSymbol.text = @"*****";
+        self.placeRatingsSymbol.text = stars;
     }
     
     unichar bullet = 0x2022;
@@ -89,30 +116,164 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] init];
+    headerView.backgroundColor = [UIColor colorWithWhite:0.94f alpha:1];//[UIColor clearColor];
+    return headerView;
+}
+
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    int sections = 3;
+    if([self.place.photos count] > 0){
+        sections++;
+        sectionPhotoIndex = 2;
+        sectionMoreInfoIndex = 3;
+    }
+    if([self.place.reviews count] > 0){
+        sections++;
+        sectionReviewIndex = (sectionPhotoIndex >=0)? 4 : 3;
+    }
+    return sections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    if(section == sectionReviewIndex){
+        return [self.place.reviews count] +1;
+    }else if(section == sectionMoreInfoIndex){
+        noOfMoreInfoRows = 0;///1; //header row
+        if(self.place.url){
+            noOfMoreInfoRows++;
+        }
+        if(self.place.website){
+            noOfMoreInfoRows++;
+        }
+        return noOfMoreInfoRows;
+    }
+    return 1;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if(indexPath.section == sectionReviewIndex) {
+        if(indexPath.row == 0){
+            return 44.0;
+        }
+        return 129.0;
+    }
+    if(indexPath.section == sectionMoreInfoIndex){
+        return 44.0;
+    }
+    if(indexPath.section == sectionPhotoIndex){
+        return 90.0;
+    }
+    if(indexPath.section == 0){
+        return 44.0;
+    }
+    if(indexPath.section == 1){
+        return 44.0;
+    }
+    return 44.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    UITableViewCell *cell;
+//#import "DetailsActionViewCell.h"
+//#import "DetailsHeaderViewCell.h"
+//#import "DetailsMoreInfoCell.h"
+//#import "DetailsReviewCell.h"
+//#import "DetailsSectionHeaderCell.h"
+
     // Configure the cell...
-    
+    if(indexPath.section == sectionReviewIndex) {
+        if(indexPath.row == 0){
+            static NSString *CellIdentifier = @"DetailsSectionHeaderCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            ((DetailsSectionHeaderCell*)cell).sectionHeaderLabel.text = @"Reviews";
+            UIView* selectedView = [[UIView alloc] init];
+            selectedView.backgroundColor = [UIColor clearColor];
+            cell.selectedBackgroundView = selectedView;
+        }else{
+            static NSString *CellIdentifier = @"DetailsReviewCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            Review* rv = [self.place.reviews objectAtIndex:indexPath.row -1];
+            ((DetailsReviewCell*)cell).authorName.text = rv.authorName;
+            ((DetailsReviewCell*)cell).authoredTime.text = @"2 months ago";
+            if(rv.rating){
+                int roundedRating = roundf(rv.rating);
+                NSString* stars = (roundedRating == 5)? @"*****": ((roundedRating == 4)? @"****" : ((roundedRating==3? @"***": ((roundedRating==2)? @"**": @"*"))));
+                ((DetailsReviewCell*)cell).authoredSubject.text = stars;
+            }
+            ((DetailsReviewCell*)cell).authorComment.text = rv.text;
+            UIView* selectedView = [[UIView alloc] init];
+            selectedView.backgroundColor = [UIColor clearColor];
+            cell.selectedBackgroundView = selectedView;
+        }
+    }else if(indexPath.section == sectionMoreInfoIndex){
+        /*if(indexPath.row == 0){
+            static NSString *CellIdentifier = @"DetailsSectionHeaderCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            ((DetailsSectionHeaderCell*)cell).sectionHeaderLabel.text = @"More Info";
+            UIView* selectedView = [[UIView alloc] init];
+            selectedView.backgroundColor = [UIColor clearColor];
+            cell.selectedBackgroundView = selectedView;
+            
+        }else{*/
+            static NSString *CellIdentifier = @"DetailsMoreInfoCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            if(indexPath.row == 0 && self.place.url){
+                ((DetailsMoreInfoCell*)cell).infoLabel.text = @"Places";
+                ((DetailsMoreInfoCell*)cell).infoDetail.text = self.place.url;
+            }else{
+                ((DetailsMoreInfoCell*)cell).infoLabel.text = @"Website";
+                ((DetailsMoreInfoCell*)cell).infoDetail.text = self.place.website;
+            }
+            cell.selectedBackgroundView = [[[NSBundle mainBundle] loadNibNamed:@"HighLightView" owner:self options:nil] objectAtIndex:0];
+        //}
+    }else if(indexPath.section == sectionPhotoIndex){
+        cell = [[UITableViewCell alloc] init];
+    }else if(indexPath.section == 0){
+        static NSString *CellIdentifier = @"DetailsHeaderViewCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        ((DetailsHeaderViewCell*)cell).addressLabel.text = self.place.vicinity;
+        ((DetailsHeaderViewCell*)cell).categoryLabel.text = [Place formattedCategory:[self.place.types objectAtIndex: 0]];
+        ((DetailsHeaderViewCell*)cell).statusLabel.text = (self.place.open) ? @"Open" : @"Closed";
+        UIView* selectedView = [[UIView alloc] init];
+        selectedView.backgroundColor = [UIColor clearColor];
+        cell.selectedBackgroundView = selectedView;
+    }else if(indexPath.section == 1){
+        static NSString *CellIdentifier = @"DetailsActionViewCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        UIView* selectedView = [[UIView alloc] init];
+        selectedView.backgroundColor = [UIColor clearColor];
+        cell.selectedBackgroundView = selectedView;
+    }
     return cell;
 }
 
+- (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"";
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

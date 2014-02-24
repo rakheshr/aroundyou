@@ -10,4 +10,9 @@
 
 @interface DetailsHeaderViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+
 @end

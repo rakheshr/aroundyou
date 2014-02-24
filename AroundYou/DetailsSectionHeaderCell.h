@@ -10,4 +10,6 @@
 
 @interface DetailsSectionHeaderCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *sectionHeaderLabel;
+
 @end
