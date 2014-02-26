@@ -55,8 +55,8 @@
 
     //self.navigationController.navigationBarHidden = YES;
     
-    latitute=37.368830;//-33.8670522f;
-    longitude=-122.036350;//151.1957362f;
+    latitute=37.368830;//40.759011;//-33.8670522f;
+    longitude=-122.036350;//-73.984472;//151.1957362f;
     sectionReviewIndex = -1;
     sectionPhotoIndex = -1;
     sectionMoreInfoIndex = 2;

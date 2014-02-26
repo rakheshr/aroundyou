@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Yahoo. All rights reserved.
 //
 
-#define HEADER_IMAGE_HEIGHT 800
+#define HEADER_IMAGE_HEIGHT 2000
 #define NO_OF_TOP_PLACES_IN_CATEGORY 3
 
 #import "Category2ViewController.h"
@@ -62,8 +62,10 @@
     self.categoryPlaces = [[NSMutableDictionary alloc] init];
     
 
-    latitute=37.368830;//-33.8670522f;
-    longitude=-122.036350;//151.1957362f;
+    //latitute=37.368830;//-33.8670522f;
+    //longitude=-122.036350;//151.1957362f;
+    latitute=37.368830;//40.759011;//-33.8670522f;
+    longitude=-122.036350;//-73.984472;//151.1957362f;
 
 	// Do any additional setup after loading the view.
     self.tableView.delegate = self;
@@ -87,7 +89,7 @@
         [client searchPlaces:type latitute:latitute longitude:longitude success:^(NSURLRequest *request, NSHTTPURLResponse *response, id data) {
             //NSLog(@"%@ Success: %@",[type objectAtIndex:0], data);
             NSArray* results = [data valueForKey:@"results"];
-            NSLog(@"i: %d Category: %@ Resutls: %d",i, [type objectAtIndex:0], [results count]);
+           // NSLog(@"i: %d Category: %@ Resutls: %d",i, [type objectAtIndex:0], [results count]);
             if([results count] > 0){
                 [self.categoryPlaces setObject:[[NSMutableArray alloc] init] forKey: [self.types objectAtIndex:i]];
                 
@@ -116,7 +118,7 @@
             NSLog(@"Failure: %@",error);
         }];
     }
-
+    
 }
 - (void)onCompletePlaceDetailRequest{
     self.noOfRequests--;
@@ -261,9 +263,15 @@
         
         // Configure the cell...
         ((CategoryViewItemCell*)cell).itemLabel.text = place.name;
+        unichar bullet = 0x2022;
+        NSString* bulletStr = [NSString stringWithCharacters:&bullet length:1];
+        bool addBullet = false;
         if(place.rating){
-            unichar bullet = 0x2022;
-            ((CategoryViewItemCell*)cell).itemRating.text = [NSString stringWithFormat:@"Rating: %@  %@  ",[NSString stringWithFormat: @"%.1f", place.rating],[NSString stringWithCharacters:&bullet length:1]];
+            //addBullet = true;
+            ((CategoryViewItemCell*)cell).itemRating.text = [NSString stringWithFormat:@"%@ ",[NSString stringWithFormat: @"%.1f", place.rating]];
+            int roundedRating = roundf(place.rating);
+            NSString* stars = (roundedRating == 5)? @"*****": ((roundedRating == 4)? @"****" : ((roundedRating==3? @"***": ((roundedRating==2)? @"**": @"*"))));
+            ((CategoryViewItemCell*)cell).starts.text = [NSString stringWithFormat:@"%@  ",stars];
         }/*else{
             for(NSLayoutConstraint* con in ((CategoryViewItemCell*)cell).itemRating.constraints){
                 if([con firstAttribute] == NSLayoutAttributeWidth){
@@ -273,8 +281,8 @@
         }*/
         
         if(!place.open){
-            unichar bullet = 0x2022;
-            ((CategoryViewItemCell*)cell).status.text = [NSString stringWithFormat:@"Closed  %@  ",[NSString stringWithCharacters:&bullet length:1]];
+            addBullet = true;
+            ((CategoryViewItemCell*)cell).status.text = [NSString stringWithFormat:@"  %@  Closed",bulletStr];
         }
         
         CLLocation* second = [[CLLocation alloc] initWithLatitude:latitute longitude:longitude];
@@ -284,9 +292,9 @@
         float miles = distance*0.00062137;
         float ft = miles*5280;
         if(miles > 0.1){
-            ((CategoryViewItemCell*)cell).distance.text = [NSString stringWithFormat:@"%.1f mi",miles];
+            ((CategoryViewItemCell*)cell).distance.text = [NSString stringWithFormat:@"%@%.1f mi",(addBullet?[NSString stringWithFormat:@"  %@  ",bulletStr] : @""),miles];
         }else{
-            ((CategoryViewItemCell*)cell).distance.text = [NSString stringWithFormat:@"%d ft",(int)ft];
+            ((CategoryViewItemCell*)cell).distance.text = [NSString stringWithFormat:@"%@%d ft",(addBullet?[NSString stringWithFormat:@"  %@  ",bulletStr] : @""),(int)ft];
         }
         
         // Do any additional setup after loading the view, typically from a nib

@@ -15,5 +15,6 @@
 @property (nonatomic, weak) IBOutlet UILabel* distance;
 @property (nonatomic, weak) IBOutlet UILabel* itemRating;
 @property (nonatomic, weak) IBOutlet UIView* viewForTab;
+@property (weak, nonatomic) IBOutlet UILabel *starts;
 
 @end

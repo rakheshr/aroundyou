@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Yahoo. All rights reserved.
 //
 
-#define CONTENT_LIST_IMAGE_HEIGHT 200
+#define CONTENT_LIST_IMAGE_HEIGHT 2000
 
 #import "ContentListViewController.h"
 #import "ContentListCell.h"
@@ -42,8 +42,8 @@
 {
     [super viewDidLoad];
 
-    latitute=37.368830;//-33.8670522f;
-    longitude=-122.036350;//151.1957362f;
+    latitute=37.368830;//40.759011;//-33.8670522f;
+    longitude=-122.036350;//-73.984472;//151.1957362f;
 
 	// Do any additional setup after loading the view.
     self.tableView.delegate = self;
@@ -142,8 +142,11 @@
     bool append = false;
     ((ContentListCell*)cell).itemLabel.text = [NSString stringWithFormat: @"%@", place.name];
     if(place.rating){
-        ((ContentListCell*)cell).itemRating.text = [NSString stringWithFormat:@"Rating: %@",[NSString stringWithFormat: @"%.1f", place.rating]];
-        append= true ;
+        append = true;
+        ((ContentListCell*)cell).itemRating.text = [NSString stringWithFormat:@"%@ ",[NSString stringWithFormat: @"%.1f", place.rating]];
+        int roundedRating = roundf(place.rating);
+        NSString* stars = (roundedRating == 5)? @"*****": ((roundedRating == 4)? @"****" : ((roundedRating==3? @"***": ((roundedRating==2)? @"**": @"*"))));
+        //((ContentListCell*)cell).starts.text = [NSString stringWithFormat:@"%@  ",stars];
     }/*else{
         for(NSLayoutConstraint* con in ((CategoryViewItemCell*)cell).itemRating.constraints){
           if([con firstAttribute] == NSLayoutAttributeWidth){
@@ -174,9 +177,9 @@
     }
     
     ((ContentListCell*)cell).itemCategory.text = [Place formattedCategory: [place.types objectAtIndex:0]];
-    if(!place.open){
+    /*if(!place.open){
         ((ContentListCell*)cell).status.text = [NSString stringWithFormat:@"%@Closed",bulletStr];
-    }
+    }*/
     
     NSLog(@"Place:%@",place.name);
     if(place.photos.count > 0){

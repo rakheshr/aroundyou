@@ -18,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet UILabel* status;
 @property (nonatomic, weak) IBOutlet UILabel* priceLevel;
 @property (nonatomic, weak) IBOutlet UILabel* noOfReviews;
+@property (weak, nonatomic) IBOutlet UILabel *starts;
 
 //highlight
 @property (nonatomic, weak) IBOutlet UIView* viewForTab;
