@@ -22,7 +22,7 @@
     [urlPath appendString:[NSString stringWithFormat: @"&lon=%f",longitude]];
     [urlPath appendString:[NSString stringWithFormat: @"&format=json&nojsoncallback=1&api_key=%@", @(FLICKR_API_KEY)]];
     NSLog(@"RequestURL: %@",urlPath);
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search%@", [urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search%@", [urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
@@ -38,7 +38,7 @@
     [urlPath appendString:[NSString stringWithFormat: @"&per_page=40&page=1&text=%@",text]];
     [urlPath appendString:[NSString stringWithFormat: @"&format=json&nojsoncallback=1&api_key=%@", @(FLICKR_API_KEY)]];
     NSLog(@"RequestURL: %@",urlPath);
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search%@", [urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search%@", [urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
@@ -54,7 +54,7 @@
     [urlPath appendString:[NSString stringWithFormat: @"&per_page=40&page=1&tags=%@",tag]];
     [urlPath appendString:[NSString stringWithFormat: @"&format=json&nojsoncallback=1&api_key=%@", @(FLICKR_API_KEY)]];
     NSLog(@"RequestURL: %@",urlPath);
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search%@", [urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search%@", [urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];

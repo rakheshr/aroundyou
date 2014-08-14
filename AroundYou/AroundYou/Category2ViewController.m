@@ -62,10 +62,13 @@
     self.categoryPlaces = [[NSMutableDictionary alloc] init];
     
 
+    
     //latitute=37.368830;//-33.8670522f;
     //longitude=-122.036350;//151.1957362f;
-    latitute=37.368830;//40.759011;//-33.8670522f;
-    longitude=-122.036350;//-73.984472;//151.1957362f;
+    //latitute=37.368830;//40.759011;//-33.8670522f;
+    //longitude=-122.036350;//-73.984472;//151.1957362f;
+    latitute=40.714269;//37.368830;//40.759011;//-33.8670522f;
+    longitude=-74.005973;//-122.036350;//-73.984472;//151.1957362f;
 
 	// Do any additional setup after loading the view.
     self.tableView.delegate = self;

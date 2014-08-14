@@ -21,6 +21,7 @@
         self.secret = [photosDictionary valueForKey:@"secret"];
         self.server = [photosDictionary valueForKey:@"server"];
         self.url_s = [photosDictionary valueForKey:@"url_s"];
+        self.url_m = [NSString stringWithFormat:@"https://farm%@.staticflickr.com/%@/%@_%@.jpg",self.farm, self.server,self.photoid, self.secret ];
         self.description = [photosDictionary valueForKey:@"description"];
         
        // NSLog([NSString stringWithFormat:@" URL = %@", self.url_s]);

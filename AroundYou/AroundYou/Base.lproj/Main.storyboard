@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c6h-xg-dlm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c6h-xg-dlm">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Landing View Controller - AroundMe-->
@@ -208,31 +208,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FlickrCell" rowHeight="176" id="h04-4Z-K2h">
-                                <rect key="frame" x="0.0" y="86" width="320" height="176"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FlickrCell" rowHeight="249" id="h04-4Z-K2h">
+                                <rect key="frame" x="0.0" y="86" width="320" height="249"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h04-4Z-K2h" id="oUp-Mg-6E8">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="175"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="248"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZO4-S9-3Bi">
-                                            <rect key="frame" x="12" y="20" width="267" height="153"/>
+                                            <rect key="frame" x="12" y="20" width="267" height="155"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="267" id="IUE-xI-vRQ"/>
                                                 <constraint firstAttribute="height" constant="153" id="ege-Rd-CB2"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="153" id="jEl-qz-UH2"/>
                                             </constraints>
                                         </imageView>
-                                        <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" indicatorStyle="white" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYf-zM-hy3">
-                                            <rect key="frame" x="17" y="128" width="295" height="72"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="72" id="4HU-Dw-1ws"/>
-                                            </constraints>
-                                            <string key="text">The wonderful park in Sunnyvale ca, The wonderful park in Sunnyvale ca, The wonderful park in Sunnyvale ca,The wonderful park in Sunnyvale ca</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zvI-Ew-RFI">
                                             <rect key="frame" x="0.0" y="348" width="97" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -246,6 +237,17 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" indicatorStyle="white" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXJ-LD-xAs">
+                                            <rect key="frame" x="11" y="177" width="267" height="56"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="56" id="nZa-Xs-eAX"/>
+                                            </constraints>
+                                            <string key="text">The wonderful park in Sunnyvale ca, The wonderful park in Sunnyvale ca, The wonderful park in Sunnyvale ca,The wonderful park in Sunnyvale ca</string>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -253,7 +255,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FlickrNormalCell" rowHeight="98" id="txC-qk-ekD">
-                                <rect key="frame" x="0.0" y="262" width="320" height="98"/>
+                                <rect key="frame" x="0.0" y="335" width="320" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="txC-qk-ekD" id="PRc-Qf-o1T">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="97"/>
@@ -311,13 +313,38 @@
                     <view key="view" contentMode="scaleToFill" id="OgE-4T-cxn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hns-k8-nQV">
+                                <rect key="frame" x="0.0" y="63" width="320" height="506"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2p-7A-CZU">
+                                <rect key="frame" x="0.0" y="427" width="320" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="287" translatesAutoresizingMaskIntoConstraints="NO" id="6DH-by-WIX">
+                                        <rect key="frame" x="17" y="16" width="287" height="113"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.35999999999999999" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="WNL-7J-KDZ"/>
+                    <connections>
+                        <outlet property="photoLabel" destination="6DH-by-WIX" id="9wC-b5-5Kx"/>
+                        <outlet property="photoView" destination="Hns-k8-nQV" id="ml1-JV-HlL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jN-U2-49P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1566" y="-441"/>
+            <point key="canvasLocation" x="1582" y="-443"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5uh-ih-3OZ">

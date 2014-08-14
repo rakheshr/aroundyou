@@ -38,9 +38,11 @@ CLLocationManager *locationManager;
     [super viewDidLoad];
     [self startStandardUpdates];
     self.photoList = [[NSMutableArray alloc] init];
-    
-    float latitude = 37.371111 ; // locationManager.location.coordinate.latitude;
-    float longitude = -122.0375;   //locationManager.location.coordinate.longitude;
+    self.title = @"Places";
+    float latitude=40.714269;//37.368830;//40.759011;//-33.8670522f;
+    float longitude=-74.005973;//-122.036350;//-73.984472;//151.1957362f;
+    //float latitude = 37.371111 ; // locationManager.location.coordinate.latitude;
+    //float longitude = -122.0375;   //locationManager.location.coordinate.longitude;
     
     NSLog(@"latitude = %+.6f", latitude);
     NSLog(@"longitude = %+.6f" , longitude);
@@ -130,7 +132,7 @@ CLLocationManager *locationManager;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == 0){
-        return 165.0;
+        return 249;//165.0;
     }
     return 95.0;
 }
